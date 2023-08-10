@@ -1,0 +1,4382 @@
+
+<!-- AVISO LEGAL:
+
+Este software é protegido pela Lei Nº 9.609, de 19 de fevereiro de 1998, que dispõe sobre a 
+proteção da propriedade intelectual de programa de computador no Brasil. A utilização indevida 
+deste software, incluindo, mas não se limitando a, reprodução, distribuição, venda, modificação 
+ou qualquer forma de exploração comercial sem a autorização expressa do autor ou de quem o 
+represente, é estritamente proibida e pode resultar em penalidades legais, incluindo detenção de 
+seis meses a dois anos e/ou multa.
+
+Ao utilizar este software, você reconhece que leu e entendeu este aviso e concorda em cumprir com todos os seus termos. -->
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Dashboard | CycleVis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="pt-BR" />
+    <meta content="Iury Gomes de Oliveira" name="author" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="http://localhost/assets/img/favicon.ico">
+
+    <!-- App css -->
+    <link href="http://localhost/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://localhost/assets/css/app.min.css" rel="stylesheet" type="text/css" id="light-style" />
+    <link href="http://localhost/assets/css/app-dark.min.css" rel="stylesheet" type="text/css" id="dark-style" />
+    <link href="http://localhost/assets/css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://localhost/assets/css/jquery.tipsy.css" rel="stylesheet" type="text/css" />
+    <link href="http://localhost/assets/css/leaflet.css" rel="stylesheet" type="text/css" />
+    <link href="http://localhost/assets/css/leaflet.fullscreen.css" rel="stylesheet" type="text/css" />
+    <link href="http://localhost/assets/css/leaflet-easy-button.css" rel="stylesheet" type="text/css" />
+    <link href="http://localhost/assets/css/leaflet-elevation.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://localhost/assets/css/fontawesome.css" rel="stylesheet" type="text/css" />
+    <link href="http://localhost/assets/css/leaflet-beautify-marker-icon.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body class="loading"
+    data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'
+    style="background-color: rgb(240,240,240);">
+
+    
+<!-- Begin page -->
+<div class="wrapper">
+
+    <!-- ========== Left Sidebar Start ========== -->
+<div class="leftside-menu p-0" id="contentSidebar" style="position:fixed">
+
+    <div class="h-100" id="leftside-menu-container" data-simplebar>
+
+        <!--- Sidemenu -->
+        <ul class="side-nav">
+            <li class="side-nav-item" id="choose_cyclist">
+                <div class="side-nav-link pb-0 pt-1 ps-1 pe-1 mb-1">
+                    <div class="row">
+    <span class="text-center mb-1 text-light">
+        Escolher Ciclista:
+    </span>
+</div>
+<div class="row text-light m-0">
+    <span class="form-check col-2" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider1" name="rider1">
+        <label class="form-check-label">1</label>
+    </span>
+    <span class="form-check col-2" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider2" name="rider2">
+        <label class="form-check-label">2</label>
+    </span>
+    <span class="form-check col-2" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider3" name="rider3">
+        <label class="form-check-label">3</label>
+    </span>
+    <span class="form-check col-2" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider4" name="rider4">
+        <label class="form-check-label">4</label>
+    </span>
+    <span class="form-check col-2" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider5" name="rider5">
+        <label class="form-check-label">5</label>
+    </span>
+    <span class="form-check col-2" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider6" name="rider6">
+        <label class="form-check-label">6</label>
+    </span>
+</div>
+<div class="row text-light m-0">
+
+    <span class="form-check col-2" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider7" name="rider7">
+        <label class="form-check-label">7</label>
+    </span>
+    <span class="form-check col-2" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider8" name="rider8">
+        <label class="form-check-label">8</label>
+    </span>
+    <span class="form-check col-2" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider9" name="rider9">
+        <label class="form-check-label">9</label>
+    </span>
+    <span class="form-check col-3" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider10" name="rider10">
+        <label class="form-check-label">10</label>
+    </span>
+    <span class="form-check col-3" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider11" name="rider11">
+        <label class="form-check-label">11</label>
+    </span>
+</div>
+<div class="row text-light m-0">
+
+    <span class="form-check col-3" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider12" name="rider12">
+        <label class="form-check-label">12</label>
+    </span>
+    <span class="form-check col-3" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider13" name="rider13">
+        <label class="form-check-label">13</label>
+    </span>
+    <span class="form-check col-3" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider14" name="rider14">
+        <label class="form-check-label">14</label>
+    </span>
+    <span class="form-check col-3" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider15" name="rider15">
+        <label class="form-check-label">15</label>
+    </span>
+</div>
+<div class="row text-light m-0">
+    <span class="form-check col-3" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider16" name="rider16">
+        <label class="form-check-label">16</label>
+    </span>
+    <span class="form-check col-3" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider17" name="rider17">
+        <label class="form-check-label">17</label>
+    </span>
+    <span class="form-check col-3" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider18" name="rider18">
+        <label class="form-check-label">18</label>
+    </span>
+    <span class="form-check col-3" style="display:inline-block">
+        <input type="checkbox" class="form-check-input" id="rider19" name="rider19">
+        <label class="form-check-label">19</label>
+    </span>
+</div>                </div>
+            </li>
+            <li class="side-nav-item" id="slider">
+                <div class="side-nav-link pb-0 pt-0 mb-1">
+                    <div class="row">
+    <div class="col-8 p-0">
+        <span class="text-center mb-1">
+            <div id="distance" style="border:0; color:#FFF; font-weight:bold; font-size: .80rem; display: none;">
+                <span id="range-min">5</span> to <span id="range-max"></span> KM
+            </div>
+        </span>
+        <div class="mb-0 mt-1" id="slider-range" style="display: none;"></div>
+    </div>
+    <div class="col-4 pe-1">
+        <div class="d-flex justify-content-center mt-2 ms-2 me-0">
+    <button type="button" class="btn btn-light btn-sm col-12" id="search_rides" data-bs-target="#modalTableLens"
+        data-bs-toggle="modal" disabled title="Ver Table Lens">
+        <i class="uil uil-align-left"></i>
+    </button>
+    <button type="button" class="btn btn-light btn-sm col-12" id="search_rides_loading" style="display: none;">
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn btn-danger btn-sm col-12" id="search_rides_danger" style="display: none;">
+        Erro &nbsp;<i id="icon_search_rides" class="uil uil-times-circle"></i>
+    </button>
+</div>    </div>
+</div>                </div>
+            </li>
+            <li class="side-nav-item" id="buttonMultivis">
+                <div class="side-nav-link pe-2 ps-2 pt-0 pb-0 d-grid">
+                     <button type="button" class="btn btn-light mb-1" id="buttonGenerateMultivis" disabled>
+     Criar Painéis
+ </button>
+ <button type="button" class="btn btn-light mb-1" id="buttonUpdateMultivis" style="display:none;" onclick="generateMultiVis()" disabled>
+     <span><i class="uil uil-exclamation-triangle"></i>Atualizar Painéis</span>
+ </button>
+ <button type="button" class="btn btn-light mb-1" id="buttonLoadingMultivis" style="display:none;">
+     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+ </button>                </div>
+            </li>
+            <li class="side-nav-item" id="barChart">
+                <div class="side-nav-link pe-2 ps-2 pt-0">
+                     <div class="row">
+     <div class="col-12">
+         <div class="card mb-0" style="display: none; position:relative;" id="pedaladas_barChart_card">
+             <div class="card-body pt-1 pb-2 pe-2 ps-1" id="pedaladas_barChart_body">
+             </div> <!-- end card-body-->
+         </div> <!-- end card-->
+     </div> <!-- end col-->
+ </div>                </div>
+            </li>
+        </ul>
+
+
+        <div class="clearfix"></div>
+
+    </div>
+    <!-- Sidebar -left -->
+
+</div>
+<!-- Left Sidebar End -->
+    <!-- ============================================================== -->
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+
+    <div class="content-page p-1">
+        <div class="content" id="contentCharts">
+            <!-- Start Content-->
+            <div class="container-fluid">
+                <!-- start page title -->
+                <div class="row h-100">
+                    <div class="col-5 p-0" id="streamGraph">
+                        <div class="container-fluid pe-0 ps-0">
+                            <div class="row p-0 mb-1 ms-2 mt-1 me-2" id="streamMetrics"
+                                style="display:none; background-color:#939DA3">
+                                <p class="m-0 fw-bold text-center text-light">
+                                    Métricas de Fluxo
+                                </p>
+                            </div>
+                            <div class="row p-0 m-0" id="streamHeartrate">
+                                <div id="pedaladas_heartrate"></div>
+                            </div>
+                            <div class="row p-0 m-0" id="streamSpeed">
+                                <div id="pedaladas_speed"></div>
+                            </div>
+                            <div class="row p-0 m-0" id="streamElevation">
+                                <div id="pedaladas_elevation"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 p-0">
+                        <div class="container-fluid pe-0 ps-0">
+                            <div class="row p-0 mb-1 ms-0 mt-1 me-2 float-left" id="globalIntensity"
+                                style="display:none; background-color:#939DA3">
+                                <p class="m-0 fw-bold text-center text-light">
+                                    Intensidade Global
+                                </p>
+                            </div>
+                            <div class="row p-0 m-0" id="heatmapChart">
+                                <div id="pedaladas_heatmapChart"></div>
+                            </div>
+                            <div class="row p-0 mb-1 ms-0 mt-0 me-2" id="trackerMap"
+                                style="display:none; background-color:#939DA3">
+                                <p class="m-0 fw-bold text-center text-light">
+                                    Mapa de Rastreamento
+                                </p>
+                            </div>
+                            <div class="row p-0 m-0" id="mapChart">
+                                <div id="pedaladas_mapChart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 p-0">
+                        <div class="container-fluid pe-0 ps-0">
+                            <div class="row p-0 mb-1 ms-2 mt-1 me-2" id="statsChart"
+                                style="display:none; background-color:#939DA3">
+                                <p class="m-0 fw-bold text-center text-light">
+                                    Gráficos Estatísticos
+                                </p>
+                            </div>
+                            <div class="row p-0 m-0" id="radarChartAVG">
+                                <div id="pedaladas_radarChartAVG"></div>
+                            </div>
+                            <div class="row p-0 m-0" id="radarChartSingle">
+                                <div id="pedaladas_radarChartSingle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+            </div> <!-- end container -->
+
+        </div> <!-- end content -->
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
+
+    <div id="modalTableLens" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    role="dialog" aria-labelledby="fullWidthModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-full-width">
+        <div class="modal-content h-100">
+            <div class="modal-header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <h4 class="modal-title text-dark text-center col-11">Escolher Pedaladas</h4>
+                        <button type="button" class="btn-close col-1" data-bs-dismiss="modal"
+                            aria-hidden="true"></button>
+                    </div>
+                    <div class="row">
+                        <div class="col-1 d-flex">
+                            <h5 class="modal-title text-dark pe-0" id="fullWidthModalLabel">Filtros:</h5>
+                            <div class="ms-2 me-2 text-dark">Agrupar:</div>
+                            <div class="d-inline form-check form-switch">
+                                <input class="form-check-input" type="checkbox"
+                                    style="background-color: rgb(90,90,90); background-image: url(http://localhost/assets/img/switch_toogle.svg);"
+                                    role="switch" id="switchToggle">
+                            </div>
+                            <div class="ms-1 me-2 text-dark">Desagrupar</div>
+                            <div class="ms-2 me-2 text-dark">Decrescente</div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox"
+                                    style="background-color: rgb(90,90,90); background-image: url(http://localhost/assets/img/switch_toogle.svg);"
+                                    role="switch" id="switchOrder">
+                            </div>
+                            <div class="ms-1 me-2 text-dark">Crescente</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body p-1">
+                <div class="container-fluid px-1 py-1">
+                    <div class="row" id="table_lens_label">
+                    </div>
+                    <div class="row" id="table_lens_box">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</div>
+<!-- END wrapper -->
+<div class="rightbar-overlay"></div>
+<!-- /End-bar -->
+
+<script src="http://localhost/assets/js/vendor.min.js"></script>
+<script src="http://localhost/assets/js/app.min.js"></script>
+<script src="http://localhost/assets/js/jquery-3.6.1.min.js"></script>
+<script src="http://localhost/assets/js/jquery-ui.min.js"></script>
+<script src="http://localhost/assets/js/d3.v7.min.js"></script>
+<script src="http://localhost/assets/js/jquery.tipsy.min.js"></script>
+<script src="http://localhost/assets/js/chart.min.js"></script>
+<script src="http://localhost/assets/js/echarts.min.js"></script>
+<script src="http://localhost/assets/js/leaflet.js"></script>
+<script src="http://localhost/assets/js/leaflet-svg-shape-markers.min.js"></script>
+<script src="http://localhost/assets/js/L.Path.DashFlow.js"></script>
+<script src="http://localhost/assets/js/leaflet-easy-button.js"></script>
+<script src="http://localhost/assets/js/Leaflet.fullscreen.min.js"></script>
+<script src="http://localhost/assets/js/leaflet.hotline.min.js"></script>
+<script src="http://localhost/assets/js/leaflet-beautify-marker-icon.js"></script>
+<script src="http://localhost/assets/js/turf.min.js"></script>
+<script src="http://localhost/assets/js/dexie.min.js"></script>
+<script src="http://localhost/assets/js/math.js"></script><script>
+/*
+    O Algoritmo é uma função assíncrona chamada "executeRequest",
+    responsável por efetuar uma requisição GET na API do GitHub.
+    Na linha 1 a  função aguarda a importação de um SDK do GitHub
+    e depois chama o método "request" desse SDK, passando os
+    parâmetros necessários para a requisição, incluindo o URL
+    da API, o token de autorização e o caminho do arquivo que se
+    deseja obter. O objetivo do algoritmo é fazer a busca de
+    informações de arquivos no repositório do Github
+    automatizadamente, utilizando uma token de acesso para se
+    obter autorização para efetuar a busca.
+    */
+async function executeRequest(path) {
+
+    let github = await import('https://cdn.skypack.dev/@octokit/request');
+
+    return await github.request({
+        method: "GET",
+        url: '/repos/{owner}/{repo}/contents/{path}',
+        headers: {
+            authorization: 'SEU TOKEN DE ACESSO',
+        },
+        owner: "iurygdeoliveira",
+        repo: "cyclevis_dataset",
+        path: path
+    });
+
+    /*
+    Na esfera do desenvolvimento de software e sistemas web, um
+    "token de acesso" é um elemento crítico no que diz respeito
+    à autenticação e autorização de usuários e aplicativos. Esse
+    token, que é uma sequência alfanumérica, atua como uma
+    credencial que permite o acesso a recursos específicos.
+    No caso particular da API do GitHub, existem dois tipos
+    principais de tokens de acesso: o "Personal Access Token"
+    e o "User Access Token" do GitHub App.
+
+    A principal função desses tokens é autenticar usuários
+    e aplicativos sem a necessidade de utilizar uma senha.
+    Assim, um token de acesso é gerado por um usuário e pode
+    ser atribuído diferentes níveis de permissões, permitindo
+    que o usuário controle quais aspectos de sua conta no
+    GitHub podem ser acessados por meio desse token.
+
+    No entanto, é fundamental ressaltar a necessidade de
+    tratar um token de acesso com o mesmo nível de segurança
+    que uma senha. Isso ocorre porque a posse de um token de
+    acesso confere ao portador os mesmos níveis de acesso
+    atribuídos ao token no momento de sua criação. Portanto,
+    os tokens de acesso são comumente utilizados em contextos
+    onde a autenticação segura é necessária sem expor a senha
+    do usuário.
+
+    No contexto do estudo realizado com a aplicação Cyclevis,
+    por questões de segurança, o token de acesso utilizado não
+    foi divulgado. No entanto, qualquer pesquisador que deseje
+    reproduzir ou expandir o estudo pode substituir
+    <SEU TOKEN DE ACESSO> pelo seu próprio token de acesso.
+    Para instruções mais detalhadas sobre como gerar e gerenciar
+    tokens de acesso, bem como sobre o uso do pacote Octokit.js
+    para interação com a API do GitHub, os pesquisadores
+    são encorajados a consultar a documentação oficial do Octokit.js
+    Disponível em: https://docs.github.com/pt/rest/quickstart
+    ?apiVersion=2022-11-28\&tool=javascript Acessado em 28/06/2023
+    e a página de gerenciamento de tokens de acesso Disponível em:
+    https://docs.github.com/pt/authentication/keeping-your-
+    account-and-data-secure/managing-your-personal-access-tokens
+    Acessado em 28/06/2023 do GitHub
+     */
+
+}
+
+
+
+async function getDataGithub(path) {
+
+    return await executeRequest(path);
+}
+
+async function getDistancesGithub(cyclist) {
+
+    let pathCyclist = "Cyclist_" + cyclist.replace(/[^0-9]/g, '');
+
+    let response = await getDataGithub(pathCyclist + '/all_distances.json');
+    let distances_url = response.data.download_url;
+
+    let data = await d3.json(distances_url,
+        data => {
+            return data
+        }
+    );
+
+    let distances_current = data.all_distances.split("|");
+    distances_current = distances_current.map((element) => {
+        let aux = element.split(",");
+        let distanceAux = aux[0].split(":");
+        let id = aux[1].split(":");
+        let data = {
+            'distance': parseFloat(distanceAux[1]),
+            'id': parseFloat(id[1])
+        };
+        return data;
+    });
+    return distances_current;
+}
+
+function extractUrlDownload(arr, value) {
+
+    let element = arr.filter(function(ele) {
+        return ele.name === value;
+    });
+
+    return element[0].download_url;
+}
+
+async function getPedaladaGithub(cyclist, pedalada) {
+
+    let pathCyclist = "Cyclist_" + cyclist.replace(/[^0-9]/g, '') + '/';
+
+    let pedal = pedalada.split("_");
+    pedal = pedal[2];
+
+    let response = await getDataGithub(pathCyclist + 'pedal' + pedal);
+
+    let urls = [
+        extractUrlDownload(response.data, 'distance_history.json'),
+        extractUrlDownload(response.data, 'elevation_google.json'),
+        extractUrlDownload(response.data, 'heartrate_history.json'),
+        extractUrlDownload(response.data, 'speed_history.json'),
+        extractUrlDownload(response.data, 'time_history.json'),
+        extractUrlDownload(response.data, 'latitudes.json'),
+        extractUrlDownload(response.data, 'longitudes.json'),
+        extractUrlDownload(response.data, 'overview.json'),
+    ];
+
+    const promises = urls.map(async (url_current, idx) => {
+        return await d3.json(url_current,
+            data => {
+                return data
+            }
+        );
+    });
+
+    return await Promise.all(promises);
+}
+</script><script>
+    function limitTamString(value, tam) {
+
+        if (value.length > tam) {
+            return value.substring(0, 9);
+        }
+        return value;
+    }
+
+    async function convertCentroid(centroid) {
+
+        let aux = centroid.split('|');
+
+        aux[0] = parseFloat(limitTamString(aux[0], 10));
+        aux[1] = parseFloat(limitTamString(aux[1], 10));
+        return aux;
+
+    }
+
+    async function convertStringData(data) {
+
+        let aux1 = data.split('|');
+        let aux2 = [];
+
+        aux1.forEach(element => {
+            aux2.push(parseFloat(limitTamString(element, 10)))
+        });
+
+        return aux2;
+    }
+
+    async function convertPoints(latitudes, longitudes) {
+
+        let aux = [];
+        latitudes = await convertStringData(latitudes);
+        longitudes = await convertStringData(longitudes);
+        if (latitudes.length == longitudes.length) {
+
+            for (let index = 0; index < latitudes.length; index++) {
+                aux.push(
+                    [latitudes[index], longitudes[index]]
+                );
+            }
+            return aux;
+        } else {
+            return null
+        }
+
+    }
+
+    async function getPedaladaDB(db, pedalada) {
+
+        let result = await db.table('pedaladas')
+            .where('pedal_id').equals(pedalada.id).toArray();
+
+        if (result.length > 0) {
+            return result;
+        } else {
+            return false;
+        }
+    }
+
+    async function checkStreamNull(pedalada) {
+
+        let rider = pedalada.split("_");
+        return await new Dexie(rider[0]).open()
+            .then(async function(db) {
+
+                let result = await db.table('pedaladas')
+                    .where('pedal_id').equals(pedalada).toArray();
+
+                if (result[0].heartrate_stream == null) {
+                    console.log(`Ride stream ${pedalada} not calculated`);
+                } else {
+                    console.log(`Ride stream ${pedalada} is already calculated`);
+                }
+
+                return (result[0].heartrate_stream == null);
+            });
+    }
+
+    async function modifyPedalada(pedalada) {
+
+        let rider = pedalada.id.split("_");
+        return await new Dexie(rider[0]).open()
+            .then(async function(db) {
+
+                await db.table('pedaladas').where('pedal_id').equals(pedalada.id).modify(result => {
+
+                    result.elevation_stream = pedalada.elevation_stream;
+                    result.elevation_intensity = pedalada.elevation_intensity;
+                    result.elevation_stream_max = pedalada.elevation_stream_max;
+                    result.elevation_stream_min = pedalada.elevation_stream_min;
+                    result.heartrate_stream = pedalada.heartrate_stream;
+                    result.heartrate_intensity = pedalada.heartrate_intensity;
+                    result.heartrate_stream_max = pedalada.heartrate_stream_max;
+                    result.heartrate_stream_min = pedalada.heartrate_stream_min;
+                    result.speed_stream = pedalada.speed_stream;
+                    result.speed_intensity = pedalada.speed_intensity;
+                    result.speed_stream_max = pedalada.speed_stream_max;
+                    result.speed_stream_min = pedalada.speed_stream_min;
+                    result.intensity = pedalada.intensity;
+                    result.intensity_normalized = pedalada.intensity_normalized;
+                    result.map_point = pedalada.map_point;
+                });
+            });
+    }
+
+    async function elevationGain(elevation) {
+
+        let data = [];
+        data.push(0);
+
+        for (let index = 1; index < elevation.length; index++) {
+
+            let diff = parseFloat(
+                math.format(
+                    math.subtract(elevation[index], elevation[index - 1]), {
+                        notation: 'fixed',
+                        precision: 6
+                    }
+                )
+            );
+
+            data.push(diff);
+        }
+
+        return data;
+
+    }
+
+    async function elevationAVG(elevation) {
+
+        let sum = math.sum(elevation);
+        let avg = parseFloat((sum / elevation.length).toFixed(6))
+        return avg
+    }
+
+    async function storePedalada(pedalada) {
+
+        return await new Dexie(pedalada.rider).open()
+            .then(async function(db) {
+
+                return await getPedaladaDB(db, pedalada).then(async (result) => {
+                    console.group("storePedalada");
+                    console.log("Query return to indexedDB: ");
+                    console.log(result);
+                    if (!result) {
+                        console.log(`Storing ride data ${pedalada.id}`);
+                        console.groupEnd();
+                        await getPedaladaGithub(pedalada.rider, pedalada.id).then(async (res) => {
+
+                            let elevation_history = await elevationGain(
+                                await convertStringData(res[1].elevation_google)
+                            );
+                            let elevation_AVG = await elevationAVG(elevation_history);
+
+                            await db.table('pedaladas').add({
+                                rider: pedalada.rider,
+                                pedal_id: pedalada.id,
+                                datetime: res[7].datetime,
+                                country: res[7].country,
+                                locality: res[7].locality,
+                                elevation_AVG: elevation_AVG,
+                                speed_AVG: await parseFloat(limitTamString(res[7].speed_avg, 10)),
+                                temperature_AVG: await parseFloat(limitTamString(res[7].temperature_avg, 10)),
+                                heartrate_AVG: await parseFloat(limitTamString(res[7].heartrate_avg, 10)),
+                                duration: res[7].duration,
+                                distance: await parseFloat(limitTamString(res[7].distance, 10)),
+                                centroid: await convertCentroid(res[7].centroid),
+                                pointInitial: await convertStringData(res[7].coordinateInicial),
+                                pointFinal: await convertStringData(res[7].coordinateFinal),
+                                points: await convertPoints(res[5].latitudes, res[6].longitudes),
+                                map_point: null,
+                                distance_history: await convertStringData(res[0].distance_history),
+                                elevation_history: elevation_history,
+                                elevation_intensity: null,
+                                elevation_stream_max: null,
+                                elevation_stream_min: null,
+                                elevation_stream: null,
+                                heartrate_history: await convertStringData(res[2].heartrate_history),
+                                heartrate_intensity: null,
+                                heartrate_stream_max: null,
+                                heartrate_stream_min: null,
+                                heartrate_stream: null,
+                                speed_history: await convertStringData(res[3].speed_history),
+                                speed_intensity: null,
+                                speed_stream_max: null,
+                                speed_stream_min: null,
+                                speed_stream: null,
+                                intensity: null,
+                                intensity_normalized: null,
+                                time_history: res[4].time_history.split('|')
+                            });
+                        });
+                        return await getPedaladaDB(db, pedalada);
+                    } else {
+                        console.log(`${pedalada.id} ride data is already stored`);
+                        console.groupEnd();
+                        return result;
+                    }
+                });
+            });
+    }
+
+    async function getRecord(pedalada_current) {
+
+        return await new Dexie(pedalada_current.rider).open()
+            .then(async function(db) {
+
+                const result = await getPedaladaDB(db, pedalada_current).then(async (result) => {
+                    console.log("Query return to indexedDB: ", result);
+                    if (!result) {
+                        console.log(`Pontos da Pedalada ${pedalada_current.id} não encontrados`);
+                        return false;
+                    } else {
+                        return result[0];
+                    }
+                });
+                return result;
+            });
+
+    }
+</script><script>
+async function storeDistance(rider) {
+
+    let data;
+    if (!(await hasDistanceCyclist(rider))) {
+
+        let index = parseInt(rider.replace(/[^0-9]/g, ''));
+        data = await getDistances(rider);
+
+        distances.push({
+            cyclist: index,
+            rides: data,
+            max: await getMaxDistance(data)
+        });
+    }
+
+    console.log("Distances Actives:");
+    console.table(distances);
+    return distances.rides;
+}
+
+async function hasDistanceCyclist(cyclist) {
+
+    if (distances.length == 0) {
+        return false;
+    }
+
+    const found = await filterDistance(cyclist);
+
+    if (found == undefined) {
+        return false;
+    }
+
+    if ((typeof found === 'object') && (found !== null)) {
+        return true;
+    }
+}
+
+async function getMaxDistance(distances) {
+    return await Math.max(...distances.map(obj => obj.distance));
+}
+
+async function getDistances(cyclist) {
+
+    console.log("Cyclist " + cyclist.replace(/[^0-9]/g, '') + " without distances");
+    let distances_current = await getDistancesGithub(cyclist);
+    return distances_current;
+}
+
+async function filterMaxDistance(cyclist) {
+    let result = await filterDistance(cyclist);
+    return result.max;
+}
+
+async function filterDistance(cyclist) {
+    let index = parseInt(cyclist.replace(/[^0-9]/g, ''));
+    return distances.find(element => element.cyclist === index);
+}
+
+async function filterRides(cyclist) {
+
+    let result = await filterDistance(cyclist);
+    return result.rides;
+}
+</script><script>
+    /**
+     * WINDOW DIMENSIONS
+     */
+    let heightWindow = $(window).height();
+    let widthWindow = $(window).width();
+    let widthSidebar = $('#contentSidebar').width();
+    let adjustHeightCharts = 22;
+    d3.select('#contentSidebar').style('min-width', widthSidebar + 'px');
+    let widthCharts = $('#contentCharts').width();
+
+    $(window).on('resize', function() {
+
+        if (pedaladas_barChart.length > 0) {
+            widthWindow = $(this).width();
+            widthSidebar = $('#contentSidebar').width();
+            widthCharts = $('#contentCharts').width();
+            heightWindow = $(this).height();
+
+            resizeModalTableLens();
+            updateButtonMultivis(pedaladas_barChart, false, false, true);
+        }
+    });
+
+    /**
+     * COLORS
+     */
+    const lightRed = 'rgb(216, 162, 169)'; // hsl(352, 41%, 74%)
+    const normalRed = 'rgb(211, 69, 90)'; // hsl(351, 62%, 55%)
+    const darkRed = 'rgb(116, 27, 40)'; // hsl(351, 62%, 28%)
+
+    const lightBlue = 'rgb(150, 191, 227)'; // hsl(208, 58%, 74%)
+    const normalBlue = 'rgb(44, 136, 216)'; // hsl(208, 69%, 51%)
+    const darkBlue = 'rgb(22, 75, 121)'; // hsl(208, 69%, 28%)
+
+    const lightYellow = 'rgb(237, 213, 140)'; // hsl(45, 73%, 74%)
+    const normalYellow = 'rgb(247, 195, 38)'; // hsl(45, 93%, 56%)
+    const darkYellow = 'rgb(138, 105, 5)'; // hsl(45, 93%, 28%)
+
+    const lightGreen = 'rgb(164, 214, 205)'; // hsl(169, 38%, 74%)
+    const normalGreen = 'rgb(47, 177, 156)'; // hsl(170, 58%, 44%)
+    const darkGreen = 'rgb(22, 80, 70)'; // hsl(170, 57%, 20%)
+
+    const lightPurple = 'rgb(193, 146, 232)'; // hsl(273, 65%, 74%)
+    const normalPurple = 'rgb(162, 65, 241)'; // hsl(273, 86%, 60%)
+    const darkPurple = 'rgb(83, 11, 142)'; // hsl(273, 86%, 30%)
+
+    /**
+     * CYCLIST SELECTED
+     */
+    let selected = [];
+</script>
+<script>
+    /**
+     * CACHE DISTANCES
+     */
+    let distances = [];
+    async function createDB(rider) {
+
+        Dexie.exists(rider).then(function(exists) {
+            if (!exists) {
+                console.log("Gerando estrutura de cache para o " + rider);
+                var db = new Dexie(rider);
+                db.version(1).stores({
+                    pedaladas: '++id,' +
+                        'rider,' +
+                        'pedal_id,' +
+                        'datetime,' +
+                        'country,' +
+                        'locality,' +
+                        'elevation_AVG,' +
+                        'speed_AVG,' +
+                        'temperature_AVG,' +
+                        'heartrate_AVG,' +
+                        'duration,' +
+                        'distance,' +
+                        'centroid,' +
+                        'pointInitial,' +
+                        'pointFinal,' +
+                        'points,' +
+                        'map_point,' +
+                        'distance_history,' +
+                        'elevation_history,' +
+                        'elevation_intensity,' +
+                        'elevation_stream,' +
+                        'elevation_stream_max,' +
+                        'elevation_stream_min,' +
+                        'heartrate_history,' +
+                        'heartrate_intensity,' +
+                        'heartrate_stream,' +
+                        'heartrate_stream_max,' +
+                        'heartrate_stream_min,' +
+                        'speed_history,' +
+                        'speed_intensity,' +
+                        'speed_stream,' +
+                        'speed_stream_max,' +
+                        'speed_stream_min,' +
+                        'intensity,' +
+                        'intensity_normalized,' +
+                        'time_history'
+                });
+                db.open();
+            }
+        });
+    }
+
+    for (let index = 1; index <= 19; index++) {
+        createDB('rider' + index);
+    }
+</script><script>
+    // *********************************************
+    // Constantes utilizadas em pedaladas_barChart
+    // *********************************************
+    pedaladas_barChart = [];
+    const adjustHeightBarChar = 66;
+</script><script>
+// ***********************************************************
+// Constantes utilizadas no tables lens modo itens
+// ***********************************************************
+
+let switchToggle = 'overview';
+let switchOrder = 'descending';
+
+// ***********************************************************
+// Constantes e variáveis utilizadas no tables lens modo itens
+// ***********************************************************
+
+// Controle da quantidade de linhas clicadas de cada ciclista
+let pedaladas_red_clicadas = 0;
+let pedaladas_blue_clicadas = 0;
+let pedaladas_yellow_clicadas = 0;
+let pedaladas_green_clicadas = 0;
+let pedaladas_purple_clicadas = 0;
+
+// controle das dimensões das linhas
+const padding_item = '6px';
+const margin_item = '1px';
+const padding_overview = '0px';
+const margin_overview = '0px';
+
+// Definindo as Cores
+const background_lens = 'rgb(150,150,150)';
+const background_lens_focus = 'rgb(50,50,50)';
+
+let colors_red_current = [lightRed, normalRed, darkRed];
+let colors_blue_current = [lightBlue, normalBlue, darkBlue];
+let colors_yellow_current = [lightYellow, normalYellow, darkYellow];
+let colors_green_current = [lightGreen, normalGreen, darkGreen];
+let colors_purple_current = [lightPurple, normalPurple, darkPurple];
+</script><script>
+    // *********************************************
+    // Constantes utilizadas em pedaladas_mapChart
+    // *********************************************
+
+    let initialZoom = 5;
+    let minZoom = 0;
+    let maxZoom = 18;
+    let map = false;
+    const line_distance_color = 'rgb(50,50,50)';
+    let betweenPointsGroup = null;
+    let hotlinePalette = ['#55dde0', '#C8E04A', '#f26419']
+    let route = L.featureGroup();
+    let distanceMap = L.featureGroup();
+    let hotline = L.featureGroup();
+    let markerHotlineHeartrate = L.featureGroup();
+    let markerHotlineSpeed = L.featureGroup();
+    let markerHotlineElevation = L.featureGroup();
+</script><script>
+    const colorHeatmap = [
+        "#FFE4B5", // Intensidade leve
+        "#FFC107", // Intensidade suave
+        "#FF9800", // Intensidade moderada
+        "#FF5722", // Intensidade forte
+        "#3E2723" // Intensidade vigorosa
+    ];
+
+    const colorPieces = [{
+            value: 0.0,
+            color: colorHeatmap[0]
+        },
+        {
+            value: 0.1,
+            color: colorHeatmap[0]
+        },
+        {
+            value: 0.2,
+            color: colorHeatmap[0]
+        },
+        {
+            value: 0.3,
+            color: colorHeatmap[1]
+        },
+        {
+            value: 0.4,
+            color: colorHeatmap[1]
+        },
+        {
+            value: 0.5,
+            color: colorHeatmap[2]
+        },
+        {
+            value: 0.6,
+            color: colorHeatmap[2]
+        },
+        {
+            value: 0.7,
+            color: colorHeatmap[3]
+        },
+        {
+            value: 0.8,
+            color: colorHeatmap[3]
+        },
+        {
+            value: 0.9,
+            color: colorHeatmap[4]
+        },
+        {
+            value: 1.0,
+            color: colorHeatmap[4]
+        }
+    ];
+</script><script>
+    let colorizeData = false;
+</script><script>
+    const segmentStream = 90; // Tamanho dos segmentos no streamGraph
+    let viewStream = 100; // Tamanho da view no streamGraph
+</script><script>
+    async function updateSlider(selected) {
+
+        let distanceSlider = [];
+        console.group("Update slider ...");
+        console.groupEnd();
+
+        // Atualizando distancias
+        for (const rider of selected) {
+
+            let has = await hasDistanceCyclist(rider);
+            if (has) {
+                let maxDistance = await filterMaxDistance(rider);
+                if (maxDistance <= 0) {
+                    console.log('Error in the maximum distance of the cyclist' + rider);
+                } else {
+                    distanceSlider.push(maxDistance);
+                }
+            }
+        }
+
+        updatingSlider(distanceSlider);
+
+        d3.selectAll('.ui-slider-handle').on('mouseup', async function() {
+            updateButtonSearchRiders(selected, false, true, false);
+
+            await restartMultiVis();
+
+            tableLens().then(() => {
+                updateButtonSearchRiders(selected, true, false, false);
+            });
+            d3.select('#search_rides').attr('title', 'Ver CyleLens');
+        });
+    }
+
+    function updatingSlider(distanceSlider) {
+
+
+        if (distanceSlider.length > 0) {
+
+            d3.select("#distance")
+                .style("display", 'block');
+
+            let maxDistance = distanceSlider.reduce(function(a, b) {
+                return Math.max(a, b)
+            });
+
+            d3.select("#range-max").text(maxDistance);
+            updateRangeMax(maxDistance);
+
+        } else {
+            d3.select("#distance")
+                .style("display", 'none');
+        }
+
+
+    }
+
+    function updateRangeMax(maxDistance) {
+
+        $("#slider-range").slider({
+            range: true,
+            min: 5,
+            step: 1,
+            max: maxDistance,
+            values: [5, maxDistance],
+            slide: function(event, ui) {
+                d3.select("#range-min").text(ui.values[0]);
+                d3.select("#range-max").text(ui.values[1]);
+            }
+        });
+
+    }
+
+    async function restartMultiVis() {
+
+        removeBarChart();
+        pedaladas_barChart = [];
+        pedaladas_red_clicadas = 0;
+        pedaladas_blue_clicadas = 0;
+        pedaladas_yellow_clicadas = 0;
+        pedaladas_green_clicadas = 0;
+        pedaladas_purple_clicadas = 0;
+        colors_red_current = [lightRed, normalRed, darkRed];
+        colors_blue_current = [lightBlue, normalBlue, darkBlue];
+        colors_yellow_current = [lightYellow, normalYellow, darkYellow];
+        colors_green_current = [lightGreen, normalGreen, darkGreen];
+        colors_purple_current = [lightPurple, normalPurple, darkPurple];
+    }
+</script><script>
+    function updateButtonSearchRiders(selected, search_riders, search_riders_loading, search_riders_danger) {
+
+
+        // Atualizando botão de busca de pedaladas e slider
+        //console.log(selected.length)
+        if (selected.length > 0) {
+            document.getElementById('search_rides').disabled = false;
+            $('#slider-range').show();
+        } else {
+            document.getElementById('search_rides').disabled = true;
+            $('#slider-range').hide();
+
+        }
+
+        if (search_riders) {
+            $('#search_rides_loading').hide();
+            $('#search_rides_danger').hide();
+            $('#search_rides').show();
+        }
+
+        if (search_riders_loading) {
+            $('#search_rides').hide();
+            $('#search_rides_danger').hide();
+            $('#search_rides_loading').show();
+        }
+
+        if (search_riders_danger) {
+            $('#search_rides').hide();
+            $('#search_rides_loading').hide();
+            $('#search_rides_danger').show();
+        }
+
+    }
+
+    async function updateButtonMultivis(pedaladas, generate, loading, update) {
+
+        if (pedaladas.length > 0) {
+            document.getElementById('buttonGenerateMultivis').disabled = false;
+            document.getElementById('buttonUpdateMultivis').disabled = false;
+        } else {
+            document.getElementById('buttonGenerateMultivis').disabled = true;
+            document.getElementById('buttonUpdateMultivis').disabled = true;
+        }
+
+        if (generate) {
+            $('#buttonGenerateMultivis').show();
+            $('#buttonUpdateMultivis').hide();
+            $('#buttonLoadingMultivis').hide();
+        }
+
+        if (loading) {
+            $('#buttonGenerateMultivis').hide();
+            $('#buttonUpdateMultivis').hide();
+            $('#buttonLoadingMultivis').show();
+        }
+
+        if (update) {
+            $('#buttonGenerateMultivis').hide();
+            $('#buttonLoadingMultivis').hide();
+            $('#buttonUpdateMultivis').show();
+        }
+    }
+</script><script>
+/**
+ * COLORS USED IN THE CYCLIST CHECKBOX
+ */
+let colors = [
+    normalRed,
+    normalBlue,
+    normalYellow,
+    normalGreen,
+    normalPurple
+];
+
+$('#rider1').on('click', click_handler);
+$('#rider2').on('click', click_handler);
+$('#rider3').on('click', click_handler);
+$('#rider4').on('click', click_handler);
+$('#rider5').on('click', click_handler);
+$('#rider6').on('click', click_handler);
+$('#rider7').on('click', click_handler);
+$('#rider8').on('click', click_handler);
+$('#rider9').on('click', click_handler);
+$('#rider10').on('click', click_handler);
+$('#rider11').on('click', click_handler);
+$('#rider12').on('click', click_handler);
+$('#rider13').on('click', click_handler);
+$('#rider14').on('click', click_handler);
+$('#rider15').on('click', click_handler);
+$('#rider16').on('click', click_handler);
+$('#rider17').on('click', click_handler);
+$('#rider18').on('click', click_handler);
+$('#rider19').on('click', click_handler);
+
+// Alternando modos de visualização do tablelens
+$('#switchToggle').on('click', function() {
+    if (switchToggle == 'overview') {
+        switchToggle = 'item';
+        console.log('Alternando Table Lens para modo: ' + switchToggle);
+    } else {
+        switchToggle = 'overview';
+        console.log('Alternando Table Lens para modo: ' + switchToggle);
+    }
+    tableLens();
+});
+
+$('#switchOrder').on('click', function() {
+    if (switchOrder == 'descending') {
+        switchOrder = 'ascending';
+        console.log('Alternando Table Lens para modo: ' + switchOrder);
+    } else {
+        switchOrder = 'descending';
+        console.log('Alternando Table Lens para modo: ' + switchOrder);
+    }
+    tableLens();
+});
+
+// Monitora os clicks do mouse nos checkbox dos ciclistas
+function click_handler() {
+
+
+    let $this = $(this);
+
+    if ($this.is(':checked')) {
+
+        selected.push($this.attr("name"));
+        updateButtonSearchRiders(selected, false, true, false);
+        storeDistance($this.attr("id")).then(async () => {
+            await updateSlider(selected);
+            tableLens();
+            updateButtonSearchRiders(selected, true, false, false);
+        });
+
+        d3.select(this).style('background-color', colors.shift());
+
+    }
+
+    if ($this.is(':not(:checked)')) {
+        selected = arrayRemove(selected, $this.attr("name"))
+        updateSlider(selected);
+        updateCacheBarChart($this.attr("name"), true)
+        getColor($(this));
+        updatePedaladasClicked();
+        updateButtonSearchRiders(selected, false, true, false);
+        tableLens().then(() => {
+            updateButtonSearchRiders(selected, true, false, false);
+        });
+
+    }
+
+    // Atualizando checkbox
+    if (selected.length >= 5) {
+        disabledCheckBox();
+    } else {
+        enableCheckBox();
+        enableTipsyTooltip('#search_rides', 'right');
+    }
+
+    if (selected.length <= 0) {
+        removeBarChart();
+        pedaladas_barChart = [];
+        pedaladas_red_clicadas = 0;
+        pedaladas_blue_clicadas = 0;
+        pedaladas_yellow_clicadas = 0;
+        pedaladas_green_clicadas = 0;
+        pedaladas_purple_clicadas = 0;
+        updateButtonMultivis(pedaladas_barChart, true, false, false);
+    }
+}
+
+function arrayRemove(arr, value) {
+    return arr.filter(function(ele) {
+        return ele != value;
+    });
+}
+
+function disabledCheckBox() {
+    $("input:not(:checked)").each(function() {
+        // console.log($(this).attr("id"));
+        // Os botões switch não podem receber esse efeito
+        let input = $(this).attr("id");
+        if ((input != 'switchToggle') && (input != 'switchOrder')) {
+            document.getElementById($(this).attr("id")).disabled = true;
+        }
+
+    });
+}
+
+function enableCheckBox() {
+    $("input:not(:checked)").each(function() {
+
+        // Os botões switch não podem receber esse efeito
+        let input = $(this).attr("id");
+        if ((input != 'switchToggle') && (input != 'switchOrder')) {
+            document.getElementById($(this).attr("id")).disabled = false;
+            $(this).css('background-color', 'white');
+            //console.log(colors);
+        }
+
+    });
+}
+
+function getColor(element) {
+    colors.push(element.css('background-color'));
+}
+
+function updatePedaladasClicked() {
+    // console.log(colors);
+
+    colors.forEach(element => {
+
+        switch (element) {
+            case normalRed:
+                pedaladas_red_clicadas = 0;
+                break;
+            case normalBlue:
+                pedaladas_blue_clicadas = 0;
+                break;
+            case normalYellow:
+                pedaladas_yellow_clicadas = 0;
+                break;
+            case normalGreen:
+                pedaladas_green_clicadas = 0;
+                break;
+            case normalPurple:
+                pedaladas_purple_clicadas = 0;
+                break;
+        }
+    });
+
+}
+</script><script>
+    async function createTableLens(pedaladas, index, rider) {
+        // console.log(pedaladas);
+        // console.log(rider)
+
+        // Obtendo cores dos ciclistas dos checkbox
+        let color = $('#' + rider).attr('style').replace(";", "").replace("background-color: ", "");
+        //console.log(color);
+
+        // Delimitando pedaladas dentro da faixa de distância escolhida
+        let limit = await limitSelected(pedaladas);
+
+        // Ordenando elementos
+        limit = await arraySort(switchOrder, limit);
+
+        // Obtendo maior pedaladas entre as pedaladas limitadas pelo slider
+        let maxDistanceRider = await getMaxDistance(limit);
+
+        // Desenhando linhas
+        let factor = 0;
+        if (switchToggle == 'item') {
+            drawItens(
+                    index, color, limit,
+                    maxDistanceRider, rider,
+                    padding_item, margin_item, 15)
+                .then(() => {
+                    animationTableLens();
+                });
+        }
+        if (switchToggle == 'overview') {
+            drawItens(
+                    index, color, limit,
+                    maxDistanceRider, rider,
+                    padding_overview, margin_overview, 2)
+                .then(() => {
+                    animationTableLens();
+                });
+        }
+    }
+
+    async function limitSelected(pedaladas) {
+
+        let limit = [];
+
+        // Obtendo faixa de distância
+        let range_min = parseFloat($('#range-min').text());
+        let range_max = parseFloat($('#range-max').text());
+        console.log("Maximum distance:", range_max, "Minimum distance:", range_min);
+
+        for (const iterator of pedaladas) {
+
+            if ((iterator.distance >= range_min) && (iterator.distance <= range_max)) {
+                limit.push({
+                    'distance': iterator.distance,
+                    'id': iterator.id
+                });
+            }
+
+        }
+
+
+        return limit;
+    }
+
+    function widthLine(distance, distanceMaxRider) {
+
+        return parseFloat((100 * distance) / distanceMaxRider);
+    }
+
+    function drawLines(box, color, rider, distance_pedalada, id_pedalada, maxDistanceRider, padding, margin) {
+
+        let tamLine = widthLine(distance_pedalada, maxDistanceRider);
+
+        d3.select('#' + box)
+            .append('div')
+            .attr("id", rider + "_pedalada_" + id_pedalada)
+            .attr("rider", rider)
+            .attr("line_clicked", 'false')
+            .attr("color_selected", 'false')
+            .attr("distance", distance_pedalada)
+            .attr("title", distance_pedalada.toFixed(2) + " KM")
+            .style('display', 'block')
+            .style('width', tamLine + '%')
+            .style('background-color', background_lens)
+            .style('padding', padding)
+            .style('margin-bottom', margin)
+            .style('margin-top', margin)
+            .style('border', '0.1px solid ' + background_lens);
+    }
+
+    function resizeHeight(index, count, fator) {
+
+        d3.select('#table_lens_box_' + index)
+            .style('height', ((count * fator) + 17) + 'px');
+
+    }
+
+    async function drawItens(index, color, pedaladas, maxDistanceRider, rider, padding, margin, factor) {
+
+        let box = 'table_lens_box_' + index;
+        let distance_pedalada = 0;
+        let id_pedalada = 0;
+        let count = 0;
+        for (; count < pedaladas.length; count++) {
+
+            distance_pedalada = pedaladas[count].distance;
+            id_pedalada = pedaladas[count].id;
+
+            drawLines(
+                box,
+                color,
+                rider,
+                distance_pedalada,
+                id_pedalada,
+                maxDistanceRider,
+                padding,
+                margin
+            );
+        }
+
+        resizeHeight(index, count, factor);
+
+    }
+
+    async function arraySort(mode, pedaladas) {
+
+        if (mode == 'descending') {
+
+            pedaladas.sort(function(a, b) {
+                if (a.distance < b.distance) {
+                    return 1;
+                }
+                if (a.distance > b.distance) {
+                    return -1;
+                }
+                // a must be equal to b
+                return 0;
+            });
+
+            return pedaladas;
+        }
+        if (mode == 'ascending') {
+
+            pedaladas.sort(function(a, b) {
+                if (a.distance > b.distance) {
+                    return 1;
+                }
+                if (a.distance < b.distance) {
+                    return -1;
+                }
+                // a must be equal to b
+                return 0;
+            });
+
+            return pedaladas;
+
+        }
+    }
+</script><script>
+function animationTableLens() {
+
+    let lines = d3.selectAll("div[line_clicked]")
+        .on('mouseover', function() {
+
+            // Habilitar animação apenas nas pedaladas não clicadas
+            if (disableAnimationBox(this)) {
+
+                if ((d3.select(this).attr("line_clicked") == 'false')) {
+
+                    lineOver('#' + d3.select(this).attr("id"));
+
+                }
+            }
+
+        })
+        .on('mouseout', function() {
+
+            if (disableAnimationBox(this)) {
+
+                if (d3.select(this).attr("line_clicked") == 'false') {
+
+                    lineOut('#' + d3.select(this).attr("id"));
+
+                }
+            }
+        })
+        .on('click', async function() {
+
+            // Desabilitar click nas linhas falsas para travar animação
+            if (disableClickLineFalse(this)) {
+
+                // Obtendo cores dos ciclistas dos checkbox
+                let color_main = $(this).parent().css('border-top-color');
+
+                switch (color_main) {
+                    case normalRed:
+                        await lineClicked(
+                            this,
+                            colors_red_current,
+                            [lightRed, normalRed, darkRed]
+                        );
+                        pedaladas_red_clicadas += 1;
+                        console.log("clicked red rides:", pedaladas_red_clicadas);
+                        break;
+                    case normalBlue:
+                        await lineClicked(
+                            this,
+                            colors_blue_current,
+                            [lightBlue, normalBlue, darkBlue]
+                        );
+                        pedaladas_blue_clicadas += 1;
+                        console.log("clicked blue rides:", pedaladas_blue_clicadas);
+                        break;
+                    case normalYellow:
+                        await lineClicked(
+                            this,
+                            colors_yellow_current,
+                            [lightYellow, normalYellow, darkYellow]
+                        );
+                        pedaladas_yellow_clicadas += 1;
+                        console.log("clicked yellow rides:", pedaladas_yellow_clicadas);
+                        break;
+                    case normalGreen:
+                        await lineClicked(
+                            this,
+                            colors_green_current,
+                            [lightGreen, normalGreen, darkGreen]
+                        );
+                        pedaladas_green_clicadas += 1;
+                        console.log("clicked green rides:", pedaladas_green_clicadas);
+                        break;
+                    case normalPurple:
+                        await lineClicked(
+                            this,
+                            colors_purple_current,
+                            [lightPurple, normalPurple, darkPurple]
+                        );
+                        pedaladas_purple_clicadas += 1;
+                        console.log("clicked purple rides:", pedaladas_purple_clicadas);
+                        break;
+                }
+            } else {
+                enableClickLineTrue(this);
+            }
+
+        });
+
+}
+
+async function lineClicked(pedalada, colors_current, colors) {
+    let aux = [];
+
+    if (colors_current.length == 0) {
+        colors_current = colors;
+    }
+    // aux = store.session.get(colors_current); // Obtendo cores a serem utilizadas 
+    // color_current = aux.pop(); // Obtendo cor específica a ser utilizada
+
+    // enviando cor especifica a ser aplicada na linha
+    await lineStateChange(pedalada, colors_current.pop());
+
+    // Armazenando as pedaladas para o bar chart
+    // console.log(pedalada);
+    push_pedaladas_barChart(pedalada);
+}
+
+async function lineStateChange(line, color_current) {
+    changeColorLine('#' + $(line).attr("id"), color_current);
+    d3.select(line)
+        .attr("line_clicked", 'true')
+        .attr("color_selected", color_current);
+}
+
+function lineStateOriginal(line, colors_current, pedaladas_clicadas) {
+
+    let color_current = d3.select(line).attr("color_selected");
+
+    changeColorLine('#' + $(line).attr("id"), background_lens);
+    d3.select(line)
+        .attr("line_clicked", 'false')
+        .attr("color_selected", 'false');
+    adjustHeightLine('#' + $(line).attr("id"));
+    pedaladas_clicadas -= 1;
+    remove_pedaladas_barChart(line); // Removendo pedalada do barchart
+
+    colors_current.push(color_current);
+
+    let color_parent = $(line).parent().css('border-top-color');
+    switch (color_parent) {
+        case normalRed:
+            colors_red_current = colors_current;
+            console.log("Red colors available:", colors_red_current);
+            break;
+        case normalBlue:
+            colors_blue_current = colors_current;
+            console.log("Blue colors available:", colors_blue_current);
+            break;
+        case normalYellow:
+            colors_yellow_current = colors_current;
+            console.log("Yellow colors available:", colors_yellow_current);
+            break;
+        case normalGreen:
+            colors_green_current = colors_current;
+            console.log("Green colors available:", colors_green_current);
+            break;
+        case normalPurple:
+            colors_purple_current = colors_current;
+            console.log("Purple colors available:", colors_purple_current);
+            break;
+    }
+    return pedaladas_clicadas;
+}
+
+function enableClickLineTrue(line) {
+
+    if ($(line).attr("line_clicked") == 'true') {
+        console.log("Enabling clicks in the table lens box");
+
+        let pedalada = $(line).attr("id").split("_");
+        let color = $('#' + pedalada).attr('style').replace(";", "").replace("background-color: ", "");
+
+        if ((color == normalRed)) {
+            pedaladas_red_clicadas = lineStateOriginal(line, colors_red_current, pedaladas_red_clicadas);
+        }
+
+        if ((color == normalBlue)) {
+            pedaladas_blue_clicadas = lineStateOriginal(line, colors_blue_current, pedaladas_blue_clicadas);
+        }
+
+        if ((color == normalYellow)) {
+            pedaladas_yellow_clicadas = lineStateOriginal(line, colors_yellow_current, pedaladas_yellow_clicadas);
+        }
+
+        if ((color == normalGreen)) {
+            pedaladas_green_clicadas = lineStateOriginal(line, colors_green_current, pedaladas_green_clicadas);
+        }
+
+        if ((color == normalPurple)) {
+            pedaladas_purple_clicadas = lineStateOriginal(line, colors_purple_current, pedaladas_purple_clicadas);
+        }
+    }
+
+    return true;
+}
+
+// Desabilitando clicks nas linhas false, após selecionar três linhas
+function disableClickLineFalse(line) {
+
+    //console.log("desabilitando clicks no box do table lens");
+    let pedalada = $(line).attr("id").split("_");
+    let color = $('#' + pedalada).attr('style').replace(";", "").replace("background-color: ", "");
+
+    if (($(line).attr("line_clicked") == 'false') && (color == normalRed) && (pedaladas_red_clicadas == 3)) {
+        return false
+    }
+
+    if (($(line).attr("line_clicked") == 'true') && (color == normalRed)) {
+        return false
+    }
+
+    if (($(line).attr("line_clicked") == 'false') && (color == normalBlue) && (pedaladas_blue_clicadas == 3)) {
+        return false
+    }
+
+    if (($(line).attr("line_clicked") == 'true') && (color == normalBlue)) {
+        return false
+    }
+
+    if (($(line).attr("line_clicked") == 'false') && (color == normalYellow) && (pedaladas_yellow_clicadas == 3)) {
+        return false
+    }
+
+    if (($(line).attr("line_clicked") == 'true') && (color == normalYellow)) {
+        return false
+    }
+
+    if (($(line).attr("line_clicked") == 'false') && (color == normalGreen) && (pedaladas_green_clicadas == 3)) {
+        return false
+    }
+
+    if (($(line).attr("line_clicked") == 'true') && (color == normalGreen)) {
+        return false
+    }
+
+    if (($(line).attr("line_clicked") == 'false') && (color == normalPurple) && (pedaladas_purple_clicadas == 3)) {
+        return false
+    }
+
+    if (($(line).attr("line_clicked") == 'true') && (color == normalPurple)) {
+        return false
+    }
+
+    return true;
+}
+
+function disableAnimationBox(line) {
+    //console.log("desabilitando Animation no box do table lens");
+    let pedalada = $(line).attr("id").split("_");
+    let color = $('#' + pedalada).attr('style').replace(";", "").replace("background-color: ", "");
+
+    if ((color == normalRed) && (pedaladas_red_clicadas == 3)) {
+        return false
+    }
+
+    if ((color == normalBlue) && (pedaladas_blue_clicadas == 3)) {
+        return false
+    }
+
+    if ((color == normalYellow) && (pedaladas_yellow_clicadas == 3)) {
+        return false
+    }
+
+    if ((color == normalGreen) && (pedaladas_green_clicadas == 3)) {
+        return false
+    }
+
+    if ((color == normalPurple) && (pedaladas_purple_clicadas == 3)) {
+        return false
+    }
+
+    return true;
+}
+
+function changeColorLine(line, color) {
+    d3.select(line)
+        .style('background-color', color)
+        .style('border', '0.1px solid ' + color);
+}
+
+function adjustHeightBox(line, over) {
+
+    if (switchToggle == 'overview') {
+        let parent = '#' + $(line).parent().attr('id');
+        //console.log(parent);
+        let height_box = parseInt(d3.select(parent).style('height').replace('px', ''));
+        if (over) {
+            d3.select(parent).style('height', ((height_box + 15) + 'px'));
+        } else {
+            d3.select(parent).style('height', ((height_box - 15) + 'px'));
+        }
+    }
+}
+
+function lineOver(line) {
+    changeColorLine(line, background_lens_focus);
+    applyHeightItem(line);
+    adjustHeightBox(line, true);
+}
+
+function lineOut(line) {
+    changeColorLine(line, background_lens);
+    adjustHeightLine(line);
+    adjustHeightBox(line, false);
+}
+</script><script>
+    function resizeModalTableLens() {
+        d3.select("#modalTableLens")
+            .style('max-width', widthCharts + 'px')
+            .style('left', widthSidebar + 'px');
+    }
+
+    function createLabels() {
+
+        for (let count = 0; count < selected.length; count++) {
+            let color = $('#' + selected[count]).attr('style').replace(";", "").replace("background-color: ", "");
+
+            d3.select('#table_lens_label').append('div')
+                .attr("id", "table_lens_label_" + count)
+                .attr("class", "col mx-1 text-center fw-bold d-flex justify-content-center")
+                .style('background-color', 'rgb(255,255,255)')
+                .style('color', color)
+                .text("Ciclista " + selected[count].replace(/[^0-9]/g, ''));
+        }
+
+    }
+
+    function createBox() {
+
+        for (let count = 0; count < selected.length; count++) {
+
+            let color = $('#' + selected[count]).attr('style').replace(";", "").replace("background-color: ", "");
+
+            d3.select('#table_lens_box').append('div')
+                .attr("id", "table_lens_box_" + count)
+                .attr("class", "col mx-1 p-1 justify-content-center")
+                .attr("rider", selected[count])
+                .style('background-color', 'rgb(255, 255, 255)')
+                .style('border', '3px solid ' + color)
+                .style('border-radius', '0.25rem');
+        }
+
+    }
+
+    async function createSkeleton() {
+
+        createLabels();
+        createBox();
+        resizeModalTableLens();
+    }
+
+    function removeTableLens() {
+
+        d3.select('#table_lens_label_0').remove();
+        d3.select('#table_lens_box_0').remove();
+        d3.select('#table_lens_label_1').remove();
+        d3.select('#table_lens_box_1').remove();
+        d3.select('#table_lens_label_2').remove();
+        d3.select('#table_lens_box_2').remove();
+        d3.select('#table_lens_label_3').remove();
+        d3.select('#table_lens_box_3').remove();
+        d3.select('#table_lens_label_4').remove();
+        d3.select('#table_lens_box_4').remove();
+
+    }
+
+    async function tableLens() {
+
+        console.group("Selected cyclists");
+        console.log(selected);
+        console.groupEnd();
+
+        // Limpando conteudo dos svg's
+        console.group("Table lens ...");
+        console.log("Creating skeleton for the table lens ...");
+        removeTableLens();
+        await createSkeleton().then(async () => {
+
+            console.log("Creating table lens ...");
+            console.groupEnd();
+
+            for (let count = 0; count < selected.length; count++) {
+
+                let pedaladas = await filterRides(selected[count]);
+                let rider = selected[count];
+                createTableLens(pedaladas, count, rider).then(() => {
+
+                    if (has_pedaladas_barChart()) {
+                        applyStateBarChar(d3.select("#table_lens_box_" + count).attr('rider'));
+                    }
+                });
+            }
+        });
+        updateButtonSearchRiders(selected, true, false, false)
+    }
+
+    function applyHeightItem(line) {
+        d3.select(line)
+            .style('padding', padding_item)
+            .style('margin-bottom', margin_item)
+            .style('margin-top', margin_item);
+    }
+
+    function applyHeightOverview(line) {
+        d3.select(line)
+            .style('padding', padding_overview)
+            .style('margin-bottom', margin_overview)
+            .style('margin-top', margin_overview);
+    }
+
+    function adjustHeightLine(line) {
+
+        let stateLine = d3.select(line).attr('line_clicked');
+        if (stateLine == 'true') {
+            applyHeightItem(line);
+        } else {
+            switch (switchToggle) {
+                case 'item':
+                    applyHeightItem(line);
+                    break;
+                case 'overview':
+                    applyHeightOverview(line);
+                    break;
+            }
+        }
+
+    }
+
+    function applyStateBarChar(rider) {
+
+        pedaladas_barChart.forEach(element => {
+
+            d3.select('#' + element.id)
+                .attr("line_clicked", element.line_clicked)
+                .attr("color_selected", element.color_selected)
+                .attr("distance", element.distance)
+                .attr("rider", element.rider)
+                .attr("title", element.distance.toFixed(2) + " KM")
+                .attr("style", element.style);
+
+            adjustHeightLine('#' + element.id);
+
+
+        });
+
+        if (switchToggle == 'overview') {
+            let box = extractBox(pedaladas_barChart, rider);
+            if (box.length > 0) {
+                let element = box[0];
+                let parent = $("#" + element.id).parent().attr('id');
+                let height_box = parseInt(d3.select('#' + parent).style('height').replace('px', ''));
+                d3.select('#' + parent).style('height', (height_box + (box.length * 14)) + 'px')
+            }
+
+        }
+
+    }
+
+    function extractBox(arr, value) {
+
+        return arr.filter(function(ele) {
+            return ele.rider === value;
+        });
+    }
+</script><script>
+async function extractPedalada(arr, value) {
+
+    let result = arr.filter(function(ele) {
+        return ele.id === value;
+    });
+    return result[0];
+}
+
+async function extractMapPoint(arr, value) {
+
+    let result = arr.filter(function(ele) {
+        return ele.axis === value;
+    });
+    return result[0];
+}
+
+async function putMarkerHotline(point, icon, shape, color_selected, title, layer) {
+
+    L.marker(point, {
+        icon: L.BeautifyIcon.icon({
+            icon: icon,
+            iconShape: 'marker',
+            backgroundColor: color_selected,
+            borderColor: color_selected,
+            textColor: 'white'
+        }),
+        draggable: true
+    }).bindPopup(title).addTo(layer);
+
+    L.shapeMarker(point, {
+        color: color_selected,
+        fillColor: color_selected,
+        fillOpacity: 0.2,
+        shape: shape,
+        radius: 14
+    }).addTo(layer);
+
+}
+async function plotMarkerHotline(params, scale) {
+
+    if (scale == 'bpm') {
+        hotline.removeLayer(markerHotlineHeartrate);
+        markerHotlineHeartrate = L.featureGroup();
+    }
+
+    if (scale == 'KM/H') {
+        hotline.removeLayer(markerHotlineSpeed);
+        markerHotlineSpeed = L.featureGroup();
+    }
+
+    if (scale == 'meters') {
+        hotline.removeLayer(markerHotlineElevation);
+        markerHotlineElevation = L.featureGroup();
+    }
+
+    for (const iterator of params) {
+
+        if (scale == 'bpm') {
+
+            let pedalada = await extractPedalada(pedaladas_barChart, iterator.name);
+            let mapPoint = await extractMapPoint(pedalada.map_point, iterator.axisValue);
+
+            if (mapPoint != undefined) {
+                await putMarkerHotline(
+                    pedalada.points[mapPoint.index],
+                    'fa-solid fa-h',
+                    'circle',
+                    pedalada.color_selected,
+                    "Heartrate",
+                    markerHotlineHeartrate
+                );
+            }
+
+        }
+
+        if (scale == 'KM/H') {
+
+            let pedalada = await extractPedalada(pedaladas_barChart, iterator.name);
+            let mapPoint = await extractMapPoint(pedalada.map_point, iterator.axisValue);
+
+            if (mapPoint != undefined) {
+                await putMarkerHotline(
+                    pedalada.points[mapPoint.index],
+                    'fa-solid fa-s',
+                    'square',
+                    pedalada.color_selected,
+                    "Speed",
+                    markerHotlineSpeed
+                );
+            }
+
+        }
+
+        if (scale == 'meters') {
+
+            let pedalada = await extractPedalada(pedaladas_barChart, iterator.seriesName);
+            let mapPoint = await extractMapPoint(pedalada.map_point, parseInt(iterator.axisValue));
+
+            if (mapPoint != undefined) {
+                await putMarkerHotline(
+                    pedalada.points[mapPoint.index],
+                    'fa-solid fa-e',
+                    'triangle',
+                    pedalada.color_selected,
+                    "Elevation",
+                    markerHotlineElevation
+                );
+            }
+        }
+    }
+
+    if (scale == 'bpm') {
+        markerHotlineHeartrate.addTo(hotline);
+    }
+
+    if (scale == 'KM/H') {
+        markerHotlineSpeed.addTo(hotline);
+    }
+
+    if (scale == 'meters') {
+        markerHotlineElevation.addTo(hotline);
+    }
+
+}
+
+async function mountHotlineData(pedalada) {
+
+    let points = pedalada.points;
+    let intensity = pedalada.intensity_normalized;
+    let map_point = pedalada.map_point;
+    let index_map_point = 0;
+
+    let hotlineData = [];
+    const promises = points.map(async (point_current, idx) => {
+
+        if (idx == 0) {
+            point_current.push(Math.min(...intensity));
+            hotlineData.push(point_current);
+            index_map_point++;
+        } else {
+
+            if (map_point[index_map_point + 1] != undefined) {
+
+                if ((idx < map_point[index_map_point + 1].index)) {
+                    point_current.push(intensity[index_map_point]);
+                    hotlineData.push(point_current);
+                } else {
+                    index_map_point++;
+                }
+
+            } else {
+                point_current.push(intensity[index_map_point]);
+                hotlineData.push(point_current);
+            }
+        }
+
+
+    });
+
+    await Promise.all(promises);
+
+    return hotlineData
+
+}
+
+async function plotHotline(pedaladas, hotline) {
+
+    const promises = pedaladas.map(async (pedalada_current, idx) => {
+
+        let hotlineData = await mountHotlineData(pedalada_current);
+
+        await L.hotline(hotlineData, {
+            min: Math.min(...pedalada_current.intensity_normalized),
+            max: Math.max(...pedalada_current.intensity_normalized),
+            palette: {
+                0.0: colorHeatmap[0],
+                0.1: colorHeatmap[0],
+                0.2: colorHeatmap[0],
+                0.3: colorHeatmap[1],
+                0.4: colorHeatmap[1],
+                0.5: colorHeatmap[2],
+                0.6: colorHeatmap[2],
+                0.7: colorHeatmap[3],
+                0.8: colorHeatmap[3],
+                0.9: colorHeatmap[4],
+                1.0: colorHeatmap[4],
+            },
+            weight: 5,
+            outlineColor: '#000',
+            outlineWidth: 2
+        }).addTo(hotline);
+
+        L.marker(pedalada_current.pointInitial, {
+            icon: L.BeautifyIcon.icon({
+                icon: 'fa-solid fa-flag-checkered',
+                iconShape: 'marker',
+                backgroundColor: pedalada_current.color_selected,
+                borderColor: pedalada_current.color_selected,
+                textColor: 'white'
+            }),
+            draggable: true
+        }).bindPopup(`<b>Final</b><br>
+                Data e Hora: ${pedalada_current.datetime}<br>
+                Lat,Lon: ${pedalada_current.pointInitial}<br>
+                Freq. Cardíaca Média: ${pedalada_current.heartrate_AVG} bpm<br>
+                Distância: ${pedalada_current.distance} KM<br>
+                Velocidade Média: ${pedalada_current.speed_AVG} KM/H<br>
+                Duração: ${pedalada_current.duration} <br>
+                País: ${pedalada_current.country}<br>
+                Localidade: ${pedalada_current.locality}
+                `).addTo(hotline);
+
+
+        L.marker(pedalada_current.pointFinal, {
+            icon: L.BeautifyIcon.icon({
+                icon: 'fa-solid fa-person-biking',
+                iconShape: 'marker',
+                backgroundColor: pedalada_current.color_selected,
+                borderColor: pedalada_current.color_selected,
+                textColor: 'white'
+            }),
+            draggable: true
+        }).bindPopup(`<b>Início</b><br>
+                Data e Hora: ${pedalada_current.datetime}<br>
+                Lat,Lon: ${pedalada_current.pointFinal}<br>
+                Freq. Cardíaca Média: ${pedalada_current.heartrate_AVG} bpm<br>
+                Distância ${pedalada_current.distance} KM<br>
+                Velocidade Média ${pedalada_current.speed_AVG} KM/H<br>
+                Duração: ${pedalada_current.duration} <br>
+                País: ${pedalada_current.country}<br>
+                Localidade: ${pedalada_current.locality}
+                `).addTo(hotline);
+
+    });
+
+    await Promise.all(promises);
+
+    return hotline;
+}
+</script><script>
+async function plotLines(pedaladas, route) {
+
+    let polyline;
+    const promises = pedaladas.map(async (pedalada_current, idx) => {
+        polyline = L.polyline(pedalada_current.points, {
+            color: pedalada_current.color_selected,
+            dashArray: "10 10",
+            dashSpeed: 35
+        }).addTo(route);
+    });
+
+    await Promise.all(promises);
+
+    return route;
+}
+
+async function plotMarkles(pedaladas, route) {
+
+    const promises = pedaladas.map(async (pedalada_current, idx) => {
+
+
+        L.marker(pedalada_current.pointInitial, {
+            icon: L.BeautifyIcon.icon({
+                icon: 'fa-solid fa-flag-checkered',
+                iconShape: 'marker',
+                backgroundColor: pedalada_current.color_selected,
+                borderColor: pedalada_current.color_selected,
+                textColor: 'white'
+            }),
+            draggable: true
+        }).bindPopup(`<b>Final</b><br>
+                Data e Hora: ${pedalada_current.datetime}<br>
+                Lat,Lon: ${pedalada_current.pointInitial}<br>
+                Freq. Cardíaca Média: ${pedalada_current.heartrate_AVG} bpm<br>
+                Distância: ${pedalada_current.distance} KM<br>
+                Veloc. Média: ${pedalada_current.speed_AVG} KM/H<br>
+                Duração: ${pedalada_current.duration} <br>
+                País: ${pedalada_current.country}<br>
+                Localidade: ${pedalada_current.locality}
+                `).addTo(route);
+
+
+        L.marker(pedalada_current.pointFinal, {
+            icon: L.BeautifyIcon.icon({
+                icon: 'fa-solid fa-person-biking',
+                iconShape: 'marker',
+                backgroundColor: pedalada_current.color_selected,
+                borderColor: pedalada_current.color_selected,
+                textColor: 'white'
+            }),
+            draggable: true
+        }).bindPopup(`<b>Início</b><br>
+                Data e Hora: ${pedalada_current.datetime}<br>
+                Lat,Lon: ${pedalada_current.pointFinal}<br>
+                Freq. Cardíaca Média: ${pedalada_current.heartrate_AVG} bpm<br>
+                Distância: ${pedalada_current.distance} KM<br>
+                Veloc. Média: ${pedalada_current.speed_AVG} KM/H<br>
+                Duração: ${pedalada_current.duration} <br>
+                País: ${pedalada_current.country}<br>
+                Localidade: ${pedalada_current.locality}
+                `).addTo(route);
+
+    });
+
+    await Promise.all(promises);
+
+    return route;
+
+}
+</script><script>
+    async function plotDistanceBetweenPoints(event, distance, points) {
+
+        let pointCurrent = [];
+
+        if (betweenPointsGroup != null) {
+            betweenPointsGroup.removeFrom(distance);
+            betweenPointsGroup = null;
+        }
+
+        betweenPointsGroup = L.featureGroup();
+
+        pointCurrent.push(event.latlng.lat);
+        pointCurrent.push(event.latlng.lng);
+
+        L.shapeMarker(pointCurrent, {
+            color: line_distance_color,
+            fillOpacity: 0,
+            shape: "circle",
+            radius: 11
+        }).addTo(betweenPointsGroup);
+        betweenPointsGroup.addTo(distance);
+
+        points = points.filter(
+            item => (
+                (item[0] != pointCurrent[0]) && (item[1] != pointCurrent[1])
+            )
+        );
+
+        // Plotando distancias
+        points.forEach(element => {
+
+            let polyline = L.polyline([element, pointCurrent], {
+                color: line_distance_color,
+                weight: 1
+            }).addTo(betweenPointsGroup);
+            betweenPointsGroup.addTo(distance);
+
+            var point1 = turf.point(pointCurrent);
+            var point2 = turf.point(element);
+            var midpoint = turf.midpoint(point1, point2);
+
+            var from = turf.point(pointCurrent);
+            var to = turf.point(element);
+            var distancePolyline = turf.distance(from, to);
+
+            var popupMap = L.popup()
+                .setLatLng(midpoint.geometry.coordinates)
+                .setContent(distancePolyline.toFixed(2) + ' KM')
+                .addTo(betweenPointsGroup);
+            betweenPointsGroup.addTo(distance);
+        });
+    }
+
+    async function plotDistance(pedaladas, distance) {
+
+        let points = [];
+        pedaladas.forEach(element => {
+            points.push(element.pointInitial);
+        });
+
+        const promisesPoints = pedaladas.map(async (pedalada_current, idx) => {
+
+            L.shapeMarker(pedalada_current.pointInitial, {
+                    color: pedalada_current.color_selected,
+                    fillColor: pedalada_current.color_selected,
+                    fillOpacity: 1,
+                    shape: "circle",
+                    radius: 6
+                }).addTo(distance)
+                .on(
+                    'click',
+                    async function(event) {
+                        plotDistanceBetweenPoints(
+                            event, distance, points
+                        );
+                    });
+        });
+
+        await Promise.all(promisesPoints);
+
+        return distance;
+
+    }
+</script><script>
+    async function resizeMapChart() {
+        let heightMapChart = parseInt(heightWindow / 2) - adjustHeightCharts - 44;
+        removeMapChart();
+        d3.select('#mapChart').style('height', heightMapChart + 'px')
+            .append('div')
+            .attr("id", 'pedaladas_mapChart');
+
+        let widthGlobalIntensity = $('#pedaladas_heatmapChart').width();
+        d3.select('#trackerMap')
+            .style("width", widthGlobalIntensity + "px")
+            .style("display", "block");
+    }
+
+    function removeMapChart() {
+        d3.select('#pedaladas_mapChart').remove();
+    }
+
+    async function calculateMapCenter(pedaladas) {
+
+        let centroids = [];
+        let bounds;
+
+        const promises = pedaladas.map(async (pedalada_current, idx) => {
+            centroids.push(pedalada_current.centroid);
+        });
+
+        await Promise.all(promises);
+
+        switch (centroids.length) {
+            case 0:
+                map.setView([0, 0], initialZoom);
+                break;
+            case 1:
+                map.setView(centroids[0], 8);
+                break;
+            default:
+                bounds = new L.LatLngBounds(centroids)
+                map.fitBounds(bounds);
+                break;
+        }
+
+        return map;
+    }
+
+    function mountTile() {
+
+        return L.tileLayer(
+            'http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}.png', {
+                minZoom: minZoom,
+                maxZoom: maxZoom,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            });
+
+        // http://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}
+        // http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}
+        // http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}.png
+        // http://{s}.google.com/vt/lyrs=pl&x={x}&y={y}&z={z}
+        // https://elevation-tiles-prod.s3.amazonaws.com/terrarium/${coords.z}/${coords.x}/${coords.y}.png
+
+    }
+
+    async function addLayerDistance(map, route, distance, hotline) {
+
+        var stateChangingButton = L.easyButton({
+            states: [{
+                stateName: 'ver-distancias', // name the state
+                icon: 'mdi mdi-18px mdi-alpha-d-box', // and define its properties
+                title: 'Ver distâncias', // like its title
+                onClick: function(btn, map) { // and its callback
+                    distance.addTo(map);
+                    route.removeFrom(map);
+                    hotline.removeFrom(map);
+                    btn.state('ver-distancias'); // change state on click!
+                }
+            }]
+        });
+
+        stateChangingButton.addTo(map);
+
+    }
+
+    async function addLayerRoute(map, route, distance, hotline) {
+
+        var stateChangingButton = L.easyButton({
+            states: [{
+                stateName: 'ver-rotas', // name the state
+                icon: 'mdi mdi-18px mdi-alpha-r-box', // and define its properties
+                title: 'Ver Rotas', // like its title
+                onClick: function(btn, map) { // and its callback
+                    route.addTo(map);
+                    distance.removeFrom(map);
+                    hotline.removeFrom(map);
+                    btn.state('ver-rotas'); // change state on click!
+                }
+            }]
+        });
+
+        stateChangingButton.addTo(map);
+    }
+
+    async function addLayerHotline(map, route, distance, hotline) {
+
+        var stateChangingButton = L.easyButton({
+            states: [{
+                stateName: 'ver-intensidade', // name the state
+                icon: 'mdi mdi-18px mdi-alpha-i-box', // and define its properties
+                title: 'Ver intensidade', // like its title
+                onClick: function(btn, map) { // and its callback
+                    hotline.addTo(map);
+                    distance.removeFrom(map);
+                    route.removeFrom(map);
+                    btn.state('ver-intensidade'); // change state on click!
+                }
+            }]
+        });
+
+        stateChangingButton.addTo(map);
+    }
+
+    async function enableTooltipMap() {
+
+        await enableTipsyTooltip(
+            ".easy-button-button.leaflet-bar-part.leaflet-interactive",
+            'right'
+        );
+        await enableTipsyTooltip(
+            ".leaflet-control-fullscreen-button.leaflet-bar-part",
+            'right'
+        );
+        await enableTipsyTooltip(
+            ".leaflet-control-zoom-in",
+            'right'
+        );
+        await enableTipsyTooltip(
+            ".leaflet-control-zoom-out",
+            'right'
+        );
+    }
+
+    async function defineLayer(route, distance, hotline, pedaladas) {
+
+
+        var routeLayer = mountTile();
+        var distanceLayer = mountTile();
+        var hotlineLayer = mountTile();
+
+        const baseLayers = {
+            'Distance': distanceLayer,
+            'Route': routeLayer,
+            'Hotline': hotlineLayer
+        };
+
+        map = L.map('pedaladas_mapChart', {
+            fullscreenControl: true,
+            layers: [distanceLayer, routeLayer, hotlineLayer]
+        });
+
+        hotline.addTo(map);
+        await addLayerHotline(map, route, distance, hotline);
+        await addLayerRoute(map, route, distance, hotline);
+        await addLayerDistance(map, route, distance, hotline);
+        await enableTooltipMap();
+
+        return map;
+
+    }
+
+    async function updateMapChart(pedaladas_barChart) {
+
+        console.log("Update MapChart ...");
+        await resizeMapChart();
+
+        if (betweenPointsGroup != null) {
+            betweenPointsGroup.removeFrom(distanceMap);
+            betweenPointsGroup = null;
+        }
+
+        route = await plotLines(pedaladas_barChart, route);
+        route = await plotMarkles(pedaladas_barChart, route);
+        distanceMap = await plotDistance(pedaladas_barChart, distanceMap);
+        hotline = await plotHotline(pedaladas_barChart, hotline);
+        let map = await defineLayer(route, distanceMap, hotline, pedaladas_barChart);
+        let centerMap = await calculateMapCenter(pedaladas_barChart);
+    }
+</script><script>
+async function time_in_minutesAVG(time) {
+
+    let minutes = time.split(':');
+    minutes[0] = parseInt(minutes[0]);
+    minutes[1] = parseInt(minutes[1]);
+    minutes[2] = parseInt(minutes[2]);
+
+    minutes[1] += parseFloat(minutes[0] * 60);
+    minutes[1] += parseFloat(minutes[2] / 60);
+    return parseFloat(minutes[1].toFixed(2));
+
+}
+
+async function formatValuesAVG(pedalada) {
+
+    // heartrate, elevation, distance, duration, speed
+    return [
+        pedalada.heartrate_AVG,
+        pedalada.elevation_AVG,
+        pedalada.temperature_AVG,
+        pedalada.speed_AVG,
+        await time_in_minutesAVG(pedalada.duration)
+    ];
+}
+
+async function mountValuesAVG(pedaladas) {
+
+    let values = [];
+    const promisesValues = pedaladas.map(async (pedalada, idx) => {
+        values.push({
+            'rider': pedalada.rider,
+            'values': await formatValuesAVG(pedalada)
+        });
+    });
+
+    await Promise.all(promisesValues);
+
+    return values;
+
+}
+
+async function mountAverage(values) {
+
+    let average = [];
+    for (let count = 0; count < selected.length; count++) {
+
+        let valuesRiders = values.filter(item => item.rider == selected[count]);
+
+        if (valuesRiders.length > 0) {
+
+            heartrate = 0;
+            elevation = 0;
+            temperature = 0;
+            speed = 0;
+            duration = 0;
+
+            valuesRiders.forEach(element => {
+                heartrate += element.values[0];
+                elevation += element.values[1];
+                temperature += element.values[2];
+                speed += element.values[3];
+                duration += element.values[4];
+            });
+
+            heartrate = parseFloat((heartrate / valuesRiders.length).toFixed(2));
+            elevation = parseFloat((elevation / valuesRiders.length).toFixed(6));
+            temperature = parseFloat((temperature / valuesRiders.length).toFixed(2));
+            speed = parseFloat((speed / valuesRiders.length).toFixed(2));
+            duration = parseFloat((duration / valuesRiders.length).toFixed(2));
+
+            let color = $('#' + selected[count]).attr('style').replace(";", "").replace("background-color: ", "");
+            average.push({
+                'name': "Cyclist " + selected[count].replace(/[^0-9]/g, ''),
+                'value': [heartrate, elevation, temperature, speed, duration],
+                lineStyle: {
+                    color: color
+                },
+                itemStyle: {
+                    color: color
+                },
+            });
+        }
+    }
+    return average;
+
+}
+
+async function mountDataSetsRadarChartAVG(pedaladas) {
+
+    let values = await mountValuesAVG(pedaladas)
+    return await mountAverage(values);
+}
+
+async function removeRadarChartAVG() {
+
+    d3.select('#pedaladas_radarChartAVG').remove();
+}
+
+async function resizeRadarChartAVG() {
+    let heightRadarChart = parseInt(heightWindow / 2) - adjustHeightCharts - 10;
+    removeRadarChartAVG();
+    d3.select('#radarChartAVG')
+        .append('div')
+        .attr("id", 'pedaladas_radarChartAVG')
+        .attr("class", 'mb-1')
+        .style("height", heightRadarChart + 'px');
+
+    let widthStatsChart = $('#pedaladas_radarChartAVG').width();
+    d3.select('#statsChart')
+        .style("width", widthStatsChart + "px")
+        .style("display", "block");
+}
+
+async function defineMaxValuesAVG(dataset) {
+
+    let maxHeartrate = [];
+    let maxElevation = [];
+    let maxTemperature = [];
+    let maxSpeed = [];
+    let maxDuration = [];
+    let maxValues = [];
+    dataset.forEach(element => {
+        maxHeartrate.push(element.value[0]);
+        maxElevation.push(element.value[1]);
+        maxTemperature.push(element.value[2]);
+        maxSpeed.push(element.value[3]);
+        maxDuration.push(element.value[4]);
+    });
+
+    maxValues.push(
+        Math.ceil(Math.max(...maxHeartrate.map(item => item))),
+        Math.max(...maxElevation.map(item => item)),
+        Math.ceil(Math.max(...maxTemperature.map(item => item))),
+        Math.ceil(Math.max(...maxSpeed.map(item => item))),
+        Math.ceil(Math.max(...maxDuration.map(item => item))),
+        Math.min(...maxElevation.map(item => item))
+    );
+
+    return maxValues;
+}
+
+async function create_RadarChartAVG() {
+
+    var chartDom = document.getElementById('pedaladas_radarChartAVG');
+    var myChart = await echarts.init(chartDom, null, {
+        renderer: 'svg'
+    });
+    var option;
+
+    let dataset = await mountDataSetsRadarChartAVG(pedaladas_barChart);
+    let maxValues = await defineMaxValuesAVG(dataset);
+
+    // Montando legendas
+    let legends = [];
+    dataset.forEach(element => {
+        legends.push(element.name);
+    });
+
+    option = {
+        backgroundColor: 'rgb(255, 255, 255)',
+        animation: true,
+        toolbox: {
+            show: true,
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        legend: {
+            data: legends,
+            itemHeight: 12,
+            itemWidth: 12,
+            itemGap: 5,
+            top: '5%',
+            formatter: function(name) {
+                return '';
+            }
+        },
+        title: {
+            show: true,
+            text: `Indicadores Médios dos Ciclistas`,
+            textStyle: {
+                fontSize: 12
+            }
+        },
+        tooltip: {
+            trigger: 'item',
+            position: 'left'
+        },
+        radar: {
+            axisName: {
+                overflow: 'break'
+            },
+            nameGap: 7,
+            center: ['50%', '52%'],
+            indicator: [{
+                    name: 'Freq. Cardíaca (BPM)',
+                    max: maxValues[0],
+                    color: 'rgb(50,50,50)'
+                },
+                {
+                    name: 'Elev. (M)',
+                    max: maxValues[1],
+                    min: maxValues[5],
+                    color: 'rgb(50,50,50)'
+                },
+                {
+                    name: 'Temp. (ºC)',
+                    max: maxValues[2],
+                    color: 'rgb(50,50,50)'
+                },
+                {
+                    name: 'Veloc. (KM/H)',
+                    max: maxValues[3],
+                    color: 'rgb(50,50,50)'
+                },
+                {
+                    name: 'Dura. (Min)',
+                    max: maxValues[4],
+                    color: 'rgb(50,50,50)'
+                }
+            ]
+        },
+        series: [{
+            type: 'radar',
+            emphasis: {
+                lineStyle: {
+                    width: 4
+                },
+                areaStyle: {
+                    opacity: 0.5
+                }
+            },
+            // Heartrate, Elevation, Temperature, Speed, Duration
+            data: dataset
+        }]
+    };
+
+    option && await myChart.setOption(option);
+
+    return myChart;
+}
+
+async function updateRadarChartAVG() {
+
+    console.log("Update RadarChart AVG ...");
+    await resizeRadarChartAVG();
+    return await create_RadarChartAVG();
+}
+</script><script>
+async function time_in_minutesSingle(time) {
+
+    let minutes = time.split(':');
+    minutes[0] = parseInt(minutes[0]);
+    minutes[1] = parseInt(minutes[1]);
+    minutes[2] = parseInt(minutes[2]);
+
+    minutes[1] += parseFloat(minutes[0] * 60);
+    minutes[1] += parseFloat(minutes[2] / 60);
+    return parseFloat(minutes[1].toFixed(2));
+
+}
+
+async function formatValuesSingle(pedalada) {
+
+    // heartrate, elevation, distance, duration, speed
+    return [
+        pedalada.heartrate_AVG,
+        pedalada.elevation_AVG,
+        pedalada.temperature_AVG,
+        pedalada.speed_AVG,
+        await time_in_minutesSingle(pedalada.duration)
+    ];
+}
+
+async function prepareValuesSingle(pedaladas) {
+
+    let values = [];
+    const promisesValues = pedaladas.map(async (pedalada, idx) => {
+        values.push({
+            'rider': pedalada.id,
+            'values': await formatValuesSingle(pedalada)
+        });
+    });
+
+    await Promise.all(promisesValues);
+
+    return values;
+
+}
+
+async function getColorRadarChart(ride) {
+
+    let find = pedaladas_barChart.find(x => x.id === ride);
+    return find.color_selected;
+
+}
+
+async function mountValuesSingle(rides) {
+
+    let data = [];
+
+    for (const item of rides) {
+
+        let heartrate = parseFloat((item.values[0]).toFixed(2));
+        let elevation = parseFloat((item.values[1]).toFixed(6));
+        let temperature = parseFloat((item.values[2]).toFixed(2));
+        let speed = parseFloat((item.values[3]).toFixed(2));
+        let duration = parseFloat((item.values[4]).toFixed(2));
+
+        let name = item.rider.replace('rider', 'C')
+        name = name.replace('pedalada', 'ride');
+        name = name.replace('_', ' - ');
+        name = name.replace('_', ' ');
+
+        let colorSelectedRadar = await getColorRadarChart(item.rider);
+
+        data.push({
+            'name': name,
+            'value': [heartrate, elevation, temperature, speed, duration],
+            lineStyle: {
+                color: colorSelectedRadar
+            },
+            itemStyle: {
+                color: colorSelectedRadar
+            },
+        });
+    }
+
+    return data;
+
+}
+
+async function separateRidesEmphasis() {
+
+    // Extraindo as pedaladas de um ciclista específico
+    let pedaladasEmphasis = pedaladas_barChart.filter(x =>
+        x.id.includes(colorizeData)
+    );
+
+    return pedaladasEmphasis;
+
+}
+
+async function mountDataSetsRadarChartSingle(pedaladas) {
+
+    let values;
+    if (colorizeData) {
+        let pedaladasRadarEmphasis = await separateRidesEmphasis(pedaladas)
+        values = await prepareValuesSingle(pedaladasRadarEmphasis)
+    } else {
+        values = await prepareValuesSingle(pedaladas)
+    }
+    return await mountValuesSingle(values);
+}
+
+async function defineMaxMinValuesSingle(dataset) {
+
+    let heartrate = [];
+    let elevation = [];
+    let temperature = [];
+    let speed = [];
+    let duration = [];
+    let values = [];
+    dataset.forEach(element => {
+        heartrate.push(element.value[0]);
+        elevation.push(element.value[1]);
+        temperature.push(element.value[2]);
+        speed.push(element.value[3]);
+        duration.push(element.value[4]);
+    });
+
+    values.push(
+        Math.ceil(Math.max(...heartrate.map(item => item))), // heartrate max
+        Math.max(...elevation.map(item => item)), // elevation max
+        Math.ceil(Math.max(...temperature.map(item => item))), // temperature max
+        Math.ceil(Math.max(...speed.map(item => item))), /// speed max
+        Math.ceil(Math.max(...duration.map(item => item))), // duration max
+        Math.min(...elevation.map(item => item))
+    );
+
+    return values;
+}
+
+async function removeRadarChartSingle() {
+
+    d3.select('#pedaladas_radarChartSingle').remove();
+}
+
+async function resizeRadarChartSingle() {
+    let heightRadarChart = parseInt(heightWindow / 2) - adjustHeightCharts - 10;
+    removeRadarChartSingle();
+    d3.select('#radarChartSingle')
+        .append('div')
+        .attr("id", 'pedaladas_radarChartSingle')
+        .style("height", heightRadarChart + 'px');
+}
+
+async function create_RadarChartSingle() {
+
+    var chartDom = document.getElementById('pedaladas_radarChartSingle');
+    var myChart = await echarts.init(chartDom, null, {
+        renderer: 'svg'
+    });
+    var option;
+
+    let dataset = await mountDataSetsRadarChartSingle(pedaladas_barChart);
+    let maxMinValues = await defineMaxMinValuesSingle(dataset);
+
+    // Montando legendas
+    let legends = [];
+    dataset.forEach(element => {
+        legends.push(element.name);
+    });
+
+    option = {
+        backgroundColor: 'rgb(255, 255, 255)',
+        animation: true,
+        toolbox: {
+            show: true,
+            feature: {
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        legend: {
+            data: legends,
+            itemHeight: 12,
+            itemWidth: 12,
+            itemGap: 5,
+            top: '5%',
+            formatter: function(name) {
+                return '';
+            }
+        },
+        title: {
+            show: true,
+            text: `Indicadores médios das pedaladas`,
+            textStyle: {
+                fontSize: 12
+            },
+            textAlign: 'auto'
+        },
+        tooltip: {
+            trigger: 'item',
+            position: 'left'
+        },
+        radar: {
+            nameGap: 7,
+            center: ['50%', '52%'],
+            indicator: [{
+                    name: 'Freq. Cardíaca (BPM)',
+                    max: maxMinValues[0],
+                    min: 30,
+                    color: 'rgb(50,50,50)'
+                },
+                {
+                    name: 'Elev. (M)',
+                    max: maxMinValues[1],
+                    min: maxMinValues[5],
+                    color: 'rgb(50,50,50)'
+                },
+                {
+                    name: 'Temp. (ºC)',
+                    max: maxMinValues[2],
+                    min: 0,
+                    color: 'rgb(50,50,50)'
+                },
+                {
+                    name: 'Veloc. (KM/H)',
+                    max: maxMinValues[3],
+                    min: 0,
+                    color: 'rgb(50,50,50)'
+                },
+                {
+                    name: 'Dura. (Min)',
+                    max: maxMinValues[4],
+                    min: 0,
+                    color: 'rgb(50,50,50)'
+                }
+            ]
+        },
+        series: [{
+            type: 'radar',
+            emphasis: {
+                lineStyle: {
+                    width: 4
+                },
+                areaStyle: {
+                    opacity: 0.5
+                }
+            },
+            // Heartrate, Elevation, Temperature, Speed, Duration
+            data: dataset
+        }]
+    };
+
+    option && await myChart.setOption(option);
+
+    myChart.getZr().on('click', async function(event) {
+        if (event.target.__title === 'Restore') {
+            colorizeData = false;
+            await updateRadarChartSingle();
+        };
+    });
+
+    return myChart;
+}
+
+async function updateRadarChartSingle() {
+
+    console.log("Update RadarChartSingle ...");
+    await resizeRadarChartSingle();
+    return await create_RadarChartSingle();
+}
+</script> <script>
+async function maxIntensity(pedaladas) {
+
+    let value = 0;
+    let maxIntensity;
+    for (let index = 0; index < pedaladas.length; index++) {
+
+        if (pedaladas[index].intensity_normalized.length > value) {
+            value = pedaladas[index].intensity_normalized.length;
+            maxIntensity = index;
+        }
+    }
+
+    return maxIntensity
+
+}
+
+async function mountMatrixData(pedaladas) {
+
+
+    let max = await maxIntensity(pedaladas);
+    let data = []; // Inicializa array vazio
+
+    for (let i = 0; i < pedaladas.length; i++) { // Itera o numero total de pedaladas
+        for (let j = 0; j < pedaladas[max].intensity_normalized
+            .length; j++) { // Itera o número de vezes da maior itensidade
+
+            let valor = (
+                Number.isFinite(pedaladas[i].intensity_normalized[j]) ? pedaladas[i].intensity_normalized[j] :
+                ''
+            );
+            // insere o valor de intensidade
+            data.push([i, j, valor]); // Adiciona sub-array com i, j e valor ao array data
+        }
+    }
+
+    return data;
+}
+
+async function mountIntensityData(pedaladas) {
+
+    let matrix = await mountMatrixData(pedaladas);
+
+    const data = matrix.map(function(item) {
+        return [item[1], item[0], (item[2] == '' ? '-' : item[2])]
+    });
+
+    return data;
+}
+
+async function mountLabelyAxis(pedaladas) {
+
+    let label = [];
+    pedaladas.forEach(element => {
+        label.push(element.color_selected);
+    });
+
+    return label;
+}
+
+async function mountLabelxAxis(maxIntensity) {
+
+    let label = [];
+    let value = 0;
+    maxIntensity.forEach(element => {
+        label.push(value);
+        value += 100;
+    });
+
+    return label;
+}
+
+async function removeHeatMapChart() {
+    d3.select('#pedaladas_heatmapChart').remove();
+}
+
+async function resizeHeatMapChart() {
+    let heightHeatMapChart =
+        parseInt(heightWindow / 2) - adjustHeightCharts
+    removeHeatMapChart();
+    d3.select('#heatmapChart')
+        .append('div')
+        .attr("id", 'pedaladas_heatmapChart')
+        .attr("class", 'p-0 mb-1')
+        .style("height", heightHeatMapChart + 'px');
+
+    let widthGlobalIntensity = $('#pedaladas_heatmapChart').width();
+    d3.select('#globalIntensity')
+        .style("width", widthGlobalIntensity + "px")
+        .style("display", "block");
+}
+
+async function create_HeatMapChart() {
+
+    var chartDom = document.getElementById('pedaladas_heatmapChart');
+    var myChart = await echarts.init(chartDom, null, {
+        renderer: 'svg'
+    });
+    var option;
+
+    // prettier-ignore
+    let max = await maxIntensity(pedaladas_barChart);
+    const labelXAxis = await mountLabelxAxis(pedaladas_barChart[max].intensity_normalized);
+    const labelYAxis = await mountLabelyAxis(pedaladas_barChart);
+
+    // prettier-ignore
+    const data = await mountIntensityData(pedaladas_barChart);
+
+    option = {
+        backgroundColor: 'rgb(255, 255, 255)',
+        title: {
+            show: true,
+            textStyle: {
+                fontSize: 12
+            }
+        },
+        tooltip: {
+            position: "top",
+        },
+        grid: {
+            height: "75%",
+            top: "15%",
+            right: "15%"
+        },
+        xAxis: {
+            type: "category",
+            data: labelXAxis,
+            splitArea: {
+                show: false,
+            },
+            name: 'm',
+            nameLocation: 'start'
+        },
+        yAxis: {
+            type: "category",
+            data: labelYAxis,
+            axisLabel: {
+                formatter: "◼",
+                fontSize: 15,
+                textStyle: {
+                    backgroundColor: "white",
+                    color: function(value, index) {
+                        return value;
+                    },
+                },
+            },
+            splitArea: {
+                show: true,
+            }
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                dataView: {
+                    readOnly: false
+                },
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        dataZoom: [{
+            type: 'slider',
+            startValue: 0,
+            top: 25,
+            height: 25,
+            minValueSpan: viewStream
+        }],
+        visualMap: {
+            type: 'continuous',
+            range: [0, 1],
+            inRange: {
+                color: colorHeatmap
+            },
+            min: 0,
+            max: 1,
+            calculable: true,
+            realtime: false,
+            orient: 'vertical',
+            precision: 2,
+            top: 'middle',
+            align: 'left',
+            right: '1'
+        },
+        series: [{
+            name: "Global Intensity",
+            type: "heatmap",
+            data: data,
+            label: {
+                show: false,
+            },
+            itemStyle: {
+                color: "#fff",
+            },
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowColor: "rgba(0, 0, 0, 0.5)",
+                },
+            },
+            progressive: 1000,
+            animation: false
+        }, ],
+    };
+
+    option && await myChart.setOption(option);
+
+    return myChart
+}
+
+async function updateHeatmapChart() {
+
+    console.log("Update HeatMapChart ...");
+    await resizeHeatMapChart();
+    return await create_HeatMapChart();
+
+}
+ </script><script>
+    async function resizeStreamChart() {
+
+        let heightStreamChart = parseInt(heightWindow / 3) - adjustHeightCharts;
+        removeStreamChart();
+        d3.select('#streamHeartrate')
+            .append('div')
+            .attr("id", 'pedaladas_heartrate')
+            .attr("class", 'mb-1')
+            .style("height", heightStreamChart + 'px');
+
+        d3.select('#streamSpeed')
+            .append('div')
+            .attr("id", 'pedaladas_speed')
+            .attr("class", 'mb-1')
+            .style("height", heightStreamChart + 'px');
+
+        d3.select('#streamElevation')
+            .append('div')
+            .attr("id", 'pedaladas_elevation')
+            .attr("class", 'mb-1')
+            .style("height", heightStreamChart + 'px');
+
+        let widthStreamMetrics = $('#pedaladas_heartrate').width();
+        d3.select('#streamMetrics')
+            .style("width", widthStreamMetrics + "px")
+            .style("display", "block");
+    }
+
+    async function removeStreamChart() {
+
+        d3.select('#pedaladas_heartrate').remove();
+        d3.select('#pedaladas_speed').remove();
+        d3.select('#pedaladas_elevation').remove();
+
+    }
+
+    async function create_StreamChart(stream, title, scale, legends, color, data, max, min) {
+
+        var chartDom = document.getElementById(stream);
+        var myChart = await echarts.init(chartDom, null, {
+            renderer: 'svg'
+        });
+        var option;
+
+        option = {
+            backgroundColor: 'rgb(255, 255, 255)',
+            animation: true,
+            color: color,
+            title: {
+                show: true,
+                text: `${title}: ${min.toFixed(2)} até ${max.toFixed(2)} (${scale})`,
+                textStyle: {
+                    fontSize: 12
+                }
+            },
+            tooltip: {
+                trigger: 'axis',
+                triggerOn: "none",
+                alwaysShowContent: true,
+                enterable: true,
+                axisPointer: {
+                    type: 'cross',
+                    lineStyle: {
+                        width: 2,
+                        type: 'solid'
+                    }
+                },
+                position: function(pos, params, dom, rect, size) {
+
+                    plotMarkerHotline(params, scale);
+                    // tooltip will be fixed on the right if mouse hovering on the left,
+                    // and on the left if hovering on the right.
+                    var obj = {
+                        top: 60
+                    };
+                    obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 5;
+                    return obj;
+                },
+
+                formatter: function(params) {
+                    let text = '';
+                    let linebreak = 1
+                    params.forEach(element => {
+                        text +=
+                            ` ${element.marker} 
+                            ${element.value[0]} meters | 
+                            ${element.value[1]} ${scale}&nbsp;&nbsp;`;
+
+                        linebreak += 1;
+
+                        if (linebreak > 2) {
+                            text += '<br>';
+                            linebreak = 1
+                        }
+                    });
+                    return text;
+                },
+                textStyle: {
+                    fontSize: 10,
+                    fontWeight: 'bold'
+                }
+            },
+            dataZoom: [{
+                type: 'inside',
+                zoomOnMouseWheel: true
+            }],
+            toolbox: {
+                show: true,
+                feature: {
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            legend: {
+                data: legends,
+                itemHeight: 12,
+                itemWidth: 12,
+                itemGap: 5,
+                left: '50%',
+                formatter: function(name) {
+                    return '';
+                }
+            },
+            singleAxis: {
+                type: 'value',
+                max: 'dataMax',
+                axisPointer: {
+                    snap: true,
+                    label: {
+                        show: true,
+                        formatter: function(params) {
+                            return echarts.format.addCommas(params.value);
+                        }
+                    },
+                    handle: {
+                        show: true
+                    }
+                },
+                top: 25,
+                bottom: 50,
+                name: 'm',
+                nameLocation: 'start',
+                splitNumber: 5,
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        type: 'solid',
+                        opacity: 1
+                    }
+                }
+            },
+            series: [{
+                type: 'themeRiver',
+                data: data,
+                boundaryGap: ['1%', '1%'],
+                label: {
+                    show: false
+                },
+                emphasis: {
+                    focus: 'self',
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
+                }
+            }]
+        };
+
+        option && await myChart.setOption(option);
+
+        return myChart;
+    }
+
+    async function mountLegendStreamChart(pedaladas) {
+
+        let legend = [];
+        pedaladas.forEach(element => {
+            legend.push(element.id);
+        });
+
+        return legend;
+    }
+
+    async function mountColor(pedaladas) {
+
+        let colorStream = [];
+        pedaladas.forEach(element => {
+            colorStream.push(element.color_selected);
+        });
+        return colorStream;
+    }
+
+    async function mountDataStream(pedaladas, type) {
+
+        let data = [];
+        let max = [];
+        let min = [];
+
+        if (type == 'heartrate') {
+
+            pedaladas.forEach(element => {
+                data = data.concat(element.heartrate_stream);
+
+                max.push(element.heartrate_stream_max);
+                min.push(element.heartrate_stream_min);
+            });
+        }
+
+        if (type == 'elevation') {
+            pedaladas.forEach(element => {
+                data = data.concat(element.elevation_stream);
+
+                max.push(element.elevation_stream_max);
+                min.push(element.elevation_stream_min);
+
+            });
+        }
+
+        if (type == 'speed') {
+
+            pedaladas.forEach(element => {
+                data = data.concat(element.speed_stream);
+
+                max.push(element.speed_stream_max);
+                min.push(element.speed_stream_min);
+
+            });
+        }
+
+        return {
+            'max': Math.max(...max),
+            'min': Math.min(...min),
+            'data': data
+        };
+    }
+
+
+    async function updateStreamChart() {
+
+        console.log("Update StreamChart ...");
+        await resizeStreamChart();
+
+        let legends = await mountLegendStreamChart(pedaladas_barChart);
+        let colorStream = await mountColor(pedaladas_barChart);
+
+        let heartData = await mountDataStream(pedaladas_barChart, 'heartrate');
+        let speedData = await mountDataStream(pedaladas_barChart, 'speed');
+        let elevationData = await mountDataStream(pedaladas_barChart, 'elevation');
+
+        let streamHeartRate = await create_StreamChart(
+            'pedaladas_heartrate',
+            'Frequência Cardíaca',
+            'bpm',
+            legends,
+            colorStream,
+            heartData.data,
+            heartData.max,
+            heartData.min
+        );
+
+        let streamSpeed = await create_StreamChart(
+            'pedaladas_speed',
+            'Velocidade',
+            'KM/H',
+            legends,
+            colorStream,
+            speedData.data,
+            speedData.max,
+            speedData.min
+        );
+
+
+        let streamElevation = await create_ElevationStream(
+            'pedaladas_elevation',
+            'Elevação',
+            'meters',
+            legends,
+            colorStream,
+            elevationData.data,
+            elevationData.max,
+            elevationData.min
+        );
+
+
+        return [streamHeartRate, streamSpeed, streamElevation];
+    }
+</script><script>
+async function ungroup(data, legends) {
+
+    let pedaladasGrouped = [];
+    // Ordenando pedaladas
+    for (let count = 0; count < legends.length; count++) {
+        pedaladasGrouped.push(data.filter(item => item[2] == legends[count]));
+    }
+
+    return pedaladasGrouped;
+}
+
+async function getMaxStream(pedaladasGrouped) {
+
+    let max = [];
+    let stream = [];
+
+    pedaladasGrouped.forEach(element => {
+        max.push(element.length);
+    });
+
+    let value = Math.max(...max);
+    let index = max.indexOf(value);
+
+    pedaladasGrouped[index].forEach(element => {
+        stream.push(element[0]);
+    });
+
+    return stream;
+}
+
+async function mountSeries(pedaladasGrouped) {
+
+    let series = [];
+    pedaladasGrouped.forEach(group => {
+
+        let data = [];
+
+        group.forEach(element => {
+            data.push(parseFloat(element[1].toFixed(2)));
+        });
+
+        series.push({
+            name: group[0][2],
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+                width: 0
+            },
+            showSymbol: false,
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            },
+            data: data
+        })
+    });
+
+    return series;
+
+}
+
+async function create_ElevationStream(stream, title, scale, legends, color, data, max, min) {
+
+    let pedaladasGrouped = await ungroup(data, legends);
+    let maxStream = await getMaxStream(pedaladasGrouped);
+    let series = await mountSeries(pedaladasGrouped);
+
+    var chartDom = document.getElementById(stream);
+    var myChart = await echarts.init(chartDom, null, {
+        renderer: 'svg'
+    });
+    var option;
+
+    option = {
+        backgroundColor: 'rgb(255, 255, 255)',
+        animation: true,
+        color: color,
+        title: {
+            show: true,
+            text: `${title}: ${min.toFixed(2)} até ${max.toFixed(2)} (${scale})`,
+            textStyle: {
+                fontSize: 12
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            triggerOn: "none",
+            showContent: true,
+            alwaysShowContent: true,
+            enterable: true,
+            axisPointer: {
+                type: 'cross',
+                lineStyle: {
+                    width: 2,
+                    type: 'solid'
+                }
+            },
+            position: function(pos, params, dom, rect, size) {
+                // tooltip will be fixed on the right if mouse hovering on the left,
+                // and on the left if hovering on the right.
+                plotMarkerHotline(params, scale);
+                var obj = {
+                    top: 60
+                };
+                obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 5;
+                return obj;
+            },
+
+            formatter: function(params) {
+                let text = '';
+                let linebreak = 1
+                params.forEach(element => {
+                    text +=
+                        ` ${element.marker} 
+                            ${element.axisValue} metros | 
+                            ${element.value} ${scale}&nbsp;&nbsp;`;
+
+                    linebreak += 1;
+
+                    if (linebreak > 2) {
+                        text += '<br>';
+                        linebreak = 1
+                    }
+                });
+                return text;
+            },
+            textStyle: {
+                fontSize: 10,
+                fontWeight: 'bold'
+            }
+        },
+        legend: {
+            data: legends,
+            itemHeight: 12,
+            itemWidth: 12,
+            itemGap: 5,
+            left: '50%',
+            icon: 'roundRect',
+            formatter: function(name) {
+                return '';
+            }
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        dataZoom: [{
+            type: 'inside',
+            zoomOnMouseWheel: true
+        }],
+        grid: {
+            left: '2%',
+            top: '10%',
+            right: '5%',
+            bottom: '10%',
+            containLabel: true
+        },
+        xAxis: [{
+            type: 'category',
+            boundaryGap: false,
+            position: 'bottom',
+            offset: 0,
+            axisLine: {
+                show: true,
+                onZero: false
+            },
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    type: 'solid',
+                    opacity: 1
+                }
+            },
+            data: maxStream,
+            splitNumber: 5,
+            axisPointer: {
+                snap: true,
+                label: {
+                    show: true,
+                    formatter: function(params) {
+                        return echarts.format.addCommas(params.value);
+                    }
+                },
+                handle: {
+                    show: true
+                }
+            }
+        }],
+        yAxis: [{
+            type: 'value',
+            name: 'm',
+            boundaryGap: ['1%', '1%'],
+            max: 'dataMax',
+            position: 'bottom',
+            offset: 0,
+            show: false,
+            axisLine: {
+                show: false,
+                onZero: false
+            },
+            nameLocation: 'start'
+        }],
+        series: series
+    };
+
+    option && await myChart.setOption(option);
+
+    return myChart;
+}
+</script><script>
+function has_pedaladas_barChart() {
+
+    if (pedaladas_barChart.length > 0) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
+async function prepare_pedalada_barChart(pedalada) {
+
+    return {
+        'centroid': null,
+        'color_selected': d3.select(pedalada).attr('color_selected'),
+        'country': null,
+        'datetime': null,
+        'distance': parseFloat(d3.select(pedalada).attr('distance')),
+        'distance_history': null,
+        'duration': null,
+        'elevation_AVG': null,
+        'elevation_history': null,
+        'elevation_intensity': null,
+        'elevation_stream': null,
+        'elevation_stream_max': null,
+        'elevation_stream_min': null,
+        'heartrate_AVG': null,
+        'heartrate_history': null,
+        'heartrate_intensity': null,
+        'heartrate_stream': null,
+        'heartrate_stream_max': null,
+        'heartrate_stream_min': null,
+        'intensity': null,
+        'intensity_normalized': null,
+        'id': d3.select(pedalada).attr('id'),
+        'line_clicked': d3.select(pedalada).attr('line_clicked'),
+        'locality': null,
+        'pointInitial': null,
+        'pointFinal': null,
+        'points': null,
+        'map_point': null,
+        'rider': d3.select(pedalada).attr('rider'),
+        'speed_AVG': null,
+        'speed_history': null,
+        'speed_intensity': null,
+        'speed_stream': null,
+        'speed_stream_max': null,
+        'speed_stream_min': null,
+        'style': d3.select(pedalada).attr('style'),
+        'temperature_AVG': null,
+        'time_history': null
+    };
+
+}
+
+async function mount_pedalada_barChart(push_barChart, res) {
+
+    push_barChart.pointInitial = res[0].pointInitial;
+    push_barChart.pointFinal = res[0].pointFinal;
+    push_barChart.points = res[0].points;
+    push_barChart.map_point = res[0].map_point;
+    push_barChart.heartrate_AVG = res[0].heartrate_AVG;
+    push_barChart.speed_AVG = res[0].speed_AVG;
+    push_barChart.elevation_AVG = res[0].elevation_AVG;
+    push_barChart.temperature_AVG = res[0].temperature_AVG;
+    push_barChart.duration = res[0].duration;
+    push_barChart.distance_history = res[0].distance_history;
+    push_barChart.datetime = res[0].datetime;
+    push_barChart.country = res[0].country;
+    push_barChart.locality = res[0].locality;
+    push_barChart.centroid = res[0].centroid;
+    push_barChart.elevation_history = res[0].elevation_history;
+    push_barChart.elevation_intensity = res[0].elevation_intensity;
+    push_barChart.elevation_stream = res[0].elevation_stream;
+    push_barChart.elevation_stream_max = res[0].elevation_stream_max;
+    push_barChart.elevation_stream_min = res[0].elevation_stream_min;
+    push_barChart.heartrate_history = res[0].heartrate_history;
+    push_barChart.heartrate_intensity = res[0].heartrate_intensity;
+    push_barChart.heartrate_stream = res[0].heartrate_stream;
+    push_barChart.heartrate_stream_max = res[0].heartrate_stream_max;
+    push_barChart.heartrate_stream_min = res[0].heartrate_stream_min;
+    push_barChart.speed_stream = res[0].speed_stream;
+    push_barChart.speed_stream_max = res[0].speed_stream_max;
+    push_barChart.speed_stream_min = res[0].speed_stream_min;
+    push_barChart.speed_history = res[0].speed_history;
+    push_barChart.speed_intensity = res[0].speed_intensity;
+    push_barChart.intensity = res[0].intensity;
+    push_barChart.intensity_normalized = res[0].intensity_normalized;
+    push_barChart.time_history = res[0].time_history;
+
+    return push_barChart;
+}
+
+async function push_pedaladas_barChart(pedalada) {
+
+    let push_barChart = await prepare_pedalada_barChart(pedalada);
+    updateButtonSearchRiders(selected, false, true, false);
+    let res = await storePedalada(push_barChart);
+    push_barChart = await mount_pedalada_barChart(push_barChart, res);
+    pedaladas_barChart.push(push_barChart);
+    updateButtonSearchRiders(selected, true, false, false)
+    updateButtonMultivis(pedaladas_barChart, false, false, true);
+
+}
+
+async function remove_pedaladas_barChart(pedal) {
+
+    pedaladas_barChart = pedaladas_barChart.filter(item => item.id !== pedal.id);
+    updateButtonMultivis(pedaladas_barChart, false, false, true);
+
+}
+
+async function calculateHeightBarChart() {
+
+    let heightChooseCyclist = $('#choose_cyclist').height();
+    let heightSlider = $('#slider').height();
+    let heightMultiVis = $('#buttonLoadingMultivis').height();
+    return parseInt(heightWindow - heightChooseCyclist - heightSlider - heightMultiVis);
+}
+
+async function removeBarChart() {
+
+    $('#pedaladas_barChart_card').hide();
+    d3.select('#pedaladas_barChart').remove();
+
+}
+
+async function createBoxBarChart() {
+    let heightBarChart = await calculateHeightBarChart() - adjustHeightBarChar;
+    d3.select('#pedaladas_barChart_body')
+        .append('canvas')
+        .attr("id", 'pedaladas_barChart')
+        .attr("height", heightBarChart + 'px');
+
+}
+
+function mountLabels() {
+
+    let labels = [];
+    pedaladas_barChart.forEach(element => {
+        labels.push('');
+    });
+
+    return labels;
+}
+
+function mountDistances() {
+
+    let distances_current = [];
+    pedaladas_barChart.forEach(element => {
+        distances_current.push(element.distance);
+    });
+
+    return distances_current;
+}
+
+function mountBackgroundColor() {
+
+    let background = [];
+    pedaladas_barChart.forEach(element => {
+        background.push(element.color_selected);
+    });
+
+    return background;
+}
+
+function updateCacheBarChart(rider, buttonMultivis) {
+
+    if (pedaladas_barChart.length > 0) {
+        pedaladas_barChart = pedaladas_barChart.filter(item => item.rider !== rider)
+        updateButtonMultivis(pedaladas_barChart, false, false, true);
+    }
+}
+
+async function create_BarChart() {
+    const ctx = document.getElementById('pedaladas_barChart');
+    const data = {
+        labels: mountLabels(),
+        datasets: [{
+            barPercentage: 1.0,
+            categoryPercentage: 1.0,
+            axis: 'y',
+            data: mountDistances(),
+            fill: true,
+            backgroundColor: mountBackgroundColor()
+        }]
+    };
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data,
+        options: {
+            maintainAspectRatio: false,
+            indexAxis: 'x',
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Gráfico de Distâncias',
+                    position: 'top',
+                    align: 'center'
+                },
+                legend: {
+                    display: false,
+                },
+                tooltip: {
+                    displayColors: false,
+                    position: 'average',
+                    xAlign: 'center',
+                    yAlign: 'bottom',
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (context.parsed.y !== null) {
+                                let pedaladas_barChart_tooltip = pedaladas_barChart;
+                                let tooltip = pedaladas_barChart_tooltip.find(x => x.distance ===
+                                    context.parsed.y);
+                                label += tooltip.distance.toFixed(2) + ' KM';
+                            }
+                            return label;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+
+async function sortBarChart() {
+
+    let pedaladasGrouped = [];
+    // Ordenando pedaladas
+    for (let count = 0; count < selected.length; count++) {
+        pedaladasGrouped.push(pedaladas_barChart.filter(item => item.rider == selected[count]));
+    }
+
+    let pedalSort = [];
+    pedaladasGrouped.forEach(group => {
+        group.forEach(pedal => {
+            pedalSort.push(pedal);
+        });
+    });
+
+    return pedalSort;
+}
+
+async function updateBarChart() {
+
+    console.log("Update BarChart ...");
+    await removeBarChart();
+
+    pedaladas_barChart = await sortBarChart();
+    if (pedaladas_barChart.length > 0) {
+        await createBoxBarChart();
+        $('#pedaladas_barChart_card').show();
+        await create_BarChart();
+    }
+}
+</script><script>
+    async function enableTipsyTooltip(element, position) {
+        $(element).tipsy({
+            arrowWidth: 10, //arrow css border-width + margin-(left|right), default is 5 + 5
+            cls: null, //tipsy custom class
+            duration: 150, //tipsy fadeIn, fadeOut duration
+            offset: 6, //tipsy offset from element
+            position: position, //tipsy position - top-left | top-center | top-right | bottom-left | bottom-center | bottom-right | left | right
+            trigger: 'hover', // how tooltip is triggered - hover | focus | click | manual
+            onShow: null, //onShow event
+            onHide: null //onHide event
+        });
+    }
+</script><script>
+    async function minLengthAttribute(pedalada) {
+
+        let min = [];
+        min.push(pedalada.distance_history.length);
+        min.push(pedalada.elevation_history.length);
+        min.push(pedalada.heartrate_history.length);
+        min.push(pedalada.speed_history.length);
+
+        if ((min[0] != min[1]) || (min[0] != min[2]) || (min[0] != min[3])) {
+            console.log(pedalada);
+        }
+
+        return Math.min(...min);
+    }
+
+    async function createSegment(pedalada) {
+
+        let segments = {};
+        segments[pedalada.id] = [];
+
+        let sum = 0;
+        let meter = 0;
+
+        let minAtribute = await minLengthAttribute(pedalada);
+
+        for (let idx1 = 0, idx2 = 0; idx2 < minAtribute; idx2++) {
+
+            sum += pedalada.distance_history[idx2];
+            meter = parseFloat((sum * 1000).toFixed(2));
+
+            if (meter >= segmentStream) {
+
+                let segment = {
+                    'distance': meter,
+                    'idx1': idx1,
+                    'idx2': idx2
+                };
+                segments[pedalada.id].push(segment);
+                idx1 = idx2 + 1;
+                sum = 0;
+            }
+        }
+
+        return segments;
+
+    }
+
+    async function createSubarray(attribute, iterator) {
+
+        return attribute.slice(
+            iterator.idx1,
+            iterator.idx2
+        );
+
+    }
+
+    async function createStream(segment, attribute, pedal_id, name) {
+
+        let stream = [];
+        let pos = [];
+
+        stream.push([0, 0, pedal_id]);
+
+        pos.push({
+            'axis': 0,
+            'index': 0
+        });
+        let maxMin = [];
+        let size = viewStream;
+
+        for (const iterator of segment) {
+
+            if (iterator.idx1 == iterator.idx2) {
+
+                stream.push(
+                    [
+                        size,
+                        parseFloat((attribute[iterator.idx1]).toFixed(6)),
+                        pedal_id
+                    ]
+                );
+
+                maxMin.push(parseFloat((attribute[iterator.idx1]).toFixed(6)));
+
+            } else {
+
+                let subarray = await createSubarray(attribute, iterator);
+
+                let avg = parseFloat(
+                    math.format(
+                        math.mean(subarray), {
+                            notation: 'fixed',
+                            precision: 6
+                        }
+                    )
+                );
+
+                stream.push(
+                    [
+                        size,
+                        avg,
+                        pedal_id
+                    ]
+                );
+
+                maxMin.push(avg);
+            }
+            pos.push({
+                'axis': size,
+                'index': iterator.idx1
+            });
+            size += viewStream;
+        }
+
+        return {
+            'stream': stream,
+            'max': Math.max(...maxMin),
+            'min': Math.min(...maxMin),
+            'map_point': pos
+        };
+    }
+
+    async function calculateAttributeIntensity(attribute, max, min) {
+
+        // attribute é o mesmo vetor utilizar no streamGraph
+        // utilizar o valor que esta posição 1
+
+        let intensity = [];
+
+        for (const item of attribute) {
+
+            let value = parseFloat(math.divide(item[1] - min, max - min));
+            value = value * (1 - 0) + 0;
+            value = math.format(
+                value, {
+                    notation: 'fixed',
+                    precision: 2
+                }
+            );
+
+            intensity.push(parseFloat(value));
+        }
+
+        intensity[0] = (intensity[0] < 0 ? intensity[0] * -1 : intensity[0]); // ajust
+
+        return intensity;
+    }
+
+
+    async function calculateIntensityGlobal(speed, elevation, heartrate) {
+
+        let intensity = [];
+
+        for (let index = 0; index < speed.length; index++) {
+
+            intensity.push(
+                parseFloat(
+                    math.format(
+                        math.divide(speed[index] + elevation[index] + heartrate[index], 3), {
+                            notation: 'fixed',
+                            precision: 2
+                        }
+                    )
+                )
+            );
+
+        }
+
+        return intensity;
+    }
+
+    async function calculateIntensityNormalized(intensity, max, min) {
+
+        let intensityNormalized = [];
+
+        for (const item of intensity) {
+            let value = parseFloat(math.divide(item - min, max - min));
+            value = value * (1 - 0) + 0;
+            value = math.format(
+                value, {
+                    notation: 'fixed',
+                    precision: 2
+                }
+            );
+            intensityNormalized.push(parseFloat(value));
+        }
+
+        return intensityNormalized;
+    }
+
+    async function adjustElevation(stream) {
+
+        // Armazenar o valor do primeiro elemento para uso posterior
+        let firstElementValue = stream[0][1];
+
+        // Deslocar os valores para a esquerda
+        for (let i = 0; i < stream.length - 1; i++) {
+            stream[i][1] = stream[i + 1][1];
+        }
+
+        // Atribuir o valor do primeiro elemento ao último elemento
+        stream[stream.length - 1][1] = firstElementValue;
+
+        return stream;
+    }
+
+    async function identifyPattern(id, Elevation, Speed) {
+
+        for (let i = 1; i < Elevation.length - 1; i++) {
+            if (Elevation[i][1] > 20 && Speed[i][1] < Speed[i - 1][1] && Speed[i][1] < Speed[i + 1][1]) {
+                console.log("Padrão detectado na pedalada: " + id);
+                console.log("Padrão detectado na posição: " + i);
+                console.log("Elevation: " + Elevation[i]);
+                console.log("Speed: " + Speed[i]);
+                console.log("Elevation + 1: " + Elevation[i + 1]);
+                console.log("Speed + 1: " + Speed[i + 1]);
+            }
+        }
+
+    }
+
+    async function updatePedalada(pedaladas) {
+
+        for (const element of pedaladas) {
+
+            if (await checkStreamNull(element.id)) {
+
+                let segments = await createSegment(element);
+
+                let heartStream = await createStream(
+                    segments[element.id],
+                    element.heartrate_history,
+                    element.id,
+                    'heartrate'
+                );
+
+                let elevationStream = await createStream(
+                    segments[element.id],
+                    element.elevation_history,
+                    element.id,
+                    'elevation'
+                );
+
+                elevationStream.stream = await adjustElevation(elevationStream.stream);
+
+                let speedStream = await createStream(
+                    segments[element.id],
+                    element.speed_history,
+                    element.id,
+                    'speed'
+                );
+
+                element.map_point = heartStream.map_point;
+
+                element.heartrate_stream = heartStream.stream;
+                element.heartrate_stream_max = heartStream.max;
+                element.heartrate_stream_min = heartStream.min;
+                element.heartrate_intensity = await calculateAttributeIntensity(
+                    heartStream.stream, heartStream.max, heartStream.min
+                );
+
+                element.elevation_stream = elevationStream.stream;
+                element.elevation_stream_max = elevationStream.max;
+                element.elevation_stream_min = elevationStream.min;
+                element.elevation_intensity = await calculateAttributeIntensity(
+                    elevationStream.stream, elevationStream.max, elevationStream.min
+                );
+
+                element.speed_stream = speedStream.stream;
+                element.speed_stream_max = speedStream.max;
+                element.speed_stream_min = speedStream.min;
+                element.speed_intensity = await calculateAttributeIntensity(
+                    speedStream.stream, speedStream.max, speedStream.min
+                );
+
+                element.intensity = await calculateIntensityGlobal(
+                    element.speed_intensity, element.elevation_intensity, element.heartrate_intensity
+                );
+
+                element.intensity_normalized = await calculateIntensityNormalized(
+                    element.intensity, Math.max(...element.intensity), Math.min(...element.intensity)
+                );
+
+                await modifyPedalada(element);
+            }
+        }
+
+        return pedaladas;
+    }
+
+    async function activeTriggerRadarCharts(avg, single) {
+
+        avg.on('mouseover', async function(params) {
+            colorizeData = params.name.replace("Cyclist ", 'rider');
+            return await updateRadarChartSingle();
+        });
+    }
+
+    async function activeTriggerDataZoom(stream, heatmap) {
+
+        heatmap.on('datazoom', function(params) {
+            stream[0].dispatchAction({
+                type: 'dataZoom',
+                start: params.start,
+                end: params.end
+            });
+            stream[1].dispatchAction({
+                type: 'dataZoom',
+                start: params.start,
+                end: params.end
+            });
+            stream[2].dispatchAction({
+                type: 'dataZoom',
+                start: params.start,
+                end: params.end
+            });
+        });
+    }
+
+    async function generateMultiVis() {
+
+        console.group("Generate MultiVis");
+        if (pedaladas_barChart.length > 0) {
+            await updateButtonMultivis(pedaladas_barChart, false, true, false);
+            pedaladas_barchart = await updatePedalada(pedaladas_barChart);
+            await updateBarChart();
+            let stream = await updateStreamChart();
+            let heatmap = await updateHeatmapChart();
+            await updateMapChart(pedaladas_barChart);
+            let radarChartAVG = await updateRadarChartAVG();
+            let radarChartSingle = await updateRadarChartSingle();
+            await activeTriggerRadarCharts(radarChartAVG, radarChartSingle);
+            await activeTriggerDataZoom(stream, heatmap);
+            await updateButtonMultivis(pedaladas_barChart, true, false, false);
+            console.log(pedaladas_barChart);
+        }
+        console.groupEnd();
+    }
+</script></body>
+
+</html>
+<!-- AVISO LEGAL:
+
+Este software é protegido pela Lei Nº 9.609, de 19 de fevereiro de 1998, que dispõe sobre a proteção da propriedade intelectual de programa de computador no Brasil. A utilização indevida deste software, incluindo, mas não se limitando a, reprodução, distribuição, venda, modificação ou qualquer forma de exploração comercial sem a autorização expressa do autor ou de quem o represente, é estritamente proibida e pode resultar em penalidades legais, incluindo detenção de seis meses a dois anos e/ou multa.
+
+Ao utilizar este software, você reconhece que leu e entendeu este aviso e concorda em cumprir com todos os seus termos. -->
