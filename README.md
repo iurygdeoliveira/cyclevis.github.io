@@ -1,10 +1,7 @@
 
 # CycleVis - Uma abordagem de visualização esportiva para análise de desempenho de ciclistas 
 
-A evolução tecnológica com a crescente produção massiva de dados demandam a criação
-de novos mecanismos para processamento e análise nos mais diferentes domínios de informação. O mesmo ocorre para o domínio de esportes, que possui um grande apelo popular ao redor do mundo e vem conquistando cada vez mais interesse da comunidade científica. Dentre os diferentes gêneros esportivos, o ciclismo vem ganhando atenção especial na comunidade de visualização de informação e Visual Analytics ao longo dos anos. De modo geral, o foco destes trabalhos está na descoberta de padrões para traçar estratégias, exibir informações estatísticas, ou analisar desempenho de grupos de ciclistas. Contudo, há uma lacuna de estudos que foquem em percursos não relacionados a competições profissionais ou ainda que considerem atributos de clima e intensidade em suas análises. Nesse contexto, essa proposta de mestrado apresenta uma abordagem de visualização de dados que compreenda essas características, em específico corridas recreativas que contenham características de intensidade, como frequência cardíaca, cadência e elevação, e variáveis climáticas, como temperatura, além das tradicionais variáveis relacionadas ao
-percurso e geolocalização. O objetivo é encontrar padrões de informação visual que proporcione compreender como essas variáveis influenciam no desempenho dos ciclistas e proporcionar uma comparação entre eles. Para auxiliar o processo de exploração visual, técnicas de visualizações multidimensionais, temporais, de grafos e de geolocalização estarão justapostas e coordenadas para facilitar a interação dos usuários
-
+A evolução tecnológica em conjunto com a crescente produção massiva de dados demandam criar novos mecanismos para processamento e análise nos mais diferentes domínios de informação. O mesmo ocorre para o domínio de esportes, que possui um grande apelo popular ao redor do mundo e vem conquistando cada vez mais interesse da comunidade científica. Dentre os diferentes gêneros esportivos, o ciclismo vem ganhando atenção especial na comunidade de visualização de informação e Visual Analytics ao longo dos anos. De modo geral, o foco destes trabalhos está na descoberta de padrões para traçar estratégias, exibir informações estatísticas, ou analisar desempenho de grupos de ciclistas. Contudo, há uma lacuna de estudos que foquem em percursos não relacionados a competições profissionais ou ainda que considerem atributos de clima e intensidade em suas análises. Nesse contexto, esse trabalho apresenta o CycleVis, uma abordagem de visualização de dados para ciclismo que permite melhor compreensão do desempenho esportivo de ciclistas. Para tal, utilizaram-se características de intensidade, como velocidade, frequência cardíaca e elevação, além da geolocalização das corridas/pedaladas. Para validar a abordagem, foi desenvolvido um caso de uso e o mesmo foi avaliado por meio de estudo com usuários, que resultou em uma avaliação muito positiva para eficácia e usabilidade.
 
 ## Referência
 
@@ -33,12 +30,7 @@ percurso e geolocalização. O objetivo é encontrar padrões de informação vi
 
 ## Demonstração
 
-Insira um gif ou um link de alguma demonstração
-
-
-## Funcionalidades
-
-
+https://iurygdeoliveira.github.io/cyclevis.github.io/
     
 ## Licença
 
